@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A futuristic terminal-style portfolio for resume highlights, security builds, and CTF write-ups."
+    >
+    <meta name="theme-color" content="#050609">
+    <title>Terminal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <canvas id="signal-canvas" aria-hidden="true"></canvas>
+    <div class="scanline" aria-hidden="true"></div>
+    <div class="site-shell">
+      <header class="topbar" aria-label="Primary">
+        <a class="brand-mark" href="#home" aria-label="Home">
+          <span class="brand-core" aria-hidden="true"></span>
+          <span id="brand-name">operator</span>
+        </a>
+        <nav class="nav-links" aria-label="Sections">
+          <a href="#resume">Resume</a>
+          <a href="#builds">Builds</a>
+          <a href="#writeups">Write-ups</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="hero" id="home" aria-labelledby="hero-title">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow" id="profile-kicker">Cyber portfolio</p>
+              <h1 id="hero-title" class="glitch" data-text="Your Name">Your Name</h1>
+              <p class="hero-role" id="profile-role">Security-focused builder</p>
+              <p class="hero-summary" id="profile-summary">
+                Resume highlights, security builds, and CTF field notes collected in one living terminal.
+              </p>
+              <div class="hero-actions" id="hero-actions" aria-label="Primary actions"></div>
+            </div>
+
+            <aside class="terminal-panel" aria-label="Live system status">
+              <div class="terminal-chrome">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="terminal-output">
+                <p><span class="prompt">$</span> whoami</p>
+                <p id="terminal-whoami">security-builder</p>
+                <p><span class="prompt">$</span> tail -f signal.log</p>
+                <ul id="signal-log" aria-live="polite"></ul>
+              </div>
+            </aside>
+          </div>
+
+          <div class="signal-strip" id="signal-strip" aria-label="Profile signals"></div>
+        </section>
+
+        <section class="section-block command-section" aria-labelledby="command-title">
+          <div class="section-heading">
+            <p class="eyebrow">Query layer</p>
+            <h2 id="command-title">Search the archive</h2>
+          </div>
+          <div class="command-bar" role="search">
+            <label for="command-input">filter</label>
+            <input
+              id="command-input"
+              type="search"
+              autocomplete="off"
+              placeholder="Try appsec, malware, cloud, CTF, Python..."
+            >
+            <span id="query-count" aria-live="polite">0 indexed</span>
+          </div>
+        </section>
+
+        <section class="section-block" id="resume" aria-labelledby="resume-title">
+          <div class="section-heading">
+            <p class="eyebrow">Resume</p>
+            <h2 id="resume-title">Experience and capabilities</h2>
+          </div>
+          <div class="resume-layout">
+            <div>
+              <h3 class="subhead">Experience</h3>
+              <div class="timeline" id="experience-list"></div>
+            </div>
+            <div>
+              <h3 class="subhead">Capability matrix</h3>
+              <div class="skill-grid" id="skill-grid"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block" id="builds" aria-labelledby="builds-title">
+          <div class="section-heading">
+            <p class="eyebrow">Lab</p>
+            <h2 id="builds-title">Builds and research</h2>
+          </div>
+          <div class="card-grid" id="project-grid"></div>
+        </section>
+
+        <section class="section-block" id="writeups" aria-labelledby="writeups-title">
+          <div class="section-heading">
+            <p class="eyebrow">Field notes</p>
+            <h2 id="writeups-title">CTFs and technical write-ups</h2>
+          </div>
+          <div class="card-grid writeup-grid" id="writeup-grid"></div>
+        </section>
+
+        <section class="section-block" id="contact" aria-labelledby="contact-title">
+          <div class="section-heading">
+            <p class="eyebrow">Handshake</p>
+            <h2 id="contact-title">Contact channels</h2>
+          </div>
+          <div class="contact-layout">
+            <p id="contact-copy">
+              Drop your preferred intro here, then wire in GitHub, LinkedIn, email, or any other signal you want public.
+            </p>
+            <div class="contact-links" id="contact-links"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span id="footer-line">Built for GitHub Pages.</span>
+        <button class="ghost-control" type="button" id="motion-toggle" aria-pressed="false">Pause motion</button>
+      </footer>
+    </div>
+
+    <script src="content/site-data.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

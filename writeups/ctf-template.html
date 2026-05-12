@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#050609">
+    <title>CTF Write-up Template</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+      .writeup-page {
+        width: min(860px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 3rem 0 5rem;
+      }
+
+      .writeup-page article {
+        display: grid;
+        gap: 1.2rem;
+      }
+
+      .writeup-page h1 {
+        max-width: none;
+        font-size: 3rem;
+      }
+
+      .writeup-page h2 {
+        margin-top: 1.6rem;
+        font-size: 1.45rem;
+      }
+
+      .writeup-page p,
+      .writeup-page li {
+        color: #b8d9d2;
+      }
+
+      .writeup-page pre {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        background: rgba(3, 11, 15, 0.88);
+        padding: 1rem;
+        color: var(--green);
+      }
+
+      .writeup-page code {
+        font-family: var(--font-mono);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="signal-canvas" aria-hidden="true"></canvas>
+    <div class="scanline" aria-hidden="true"></div>
+    <main class="writeup-page">
+      <a class="card-link" href="../index.html#writeups">Back to archive</a>
+      <article>
+        <p class="eyebrow">CTF template</p>
+        <h1>Challenge Name</h1>
+        <p class="hero-role">Event / category / difficulty / date</p>
+        <p>
+          Replace this page with the story of the challenge: what you saw, what you tried, what failed,
+          and what finally worked.
+        </p>
+
+        <h2>Recon</h2>
+        <p>Capture initial observations, ports, files, endpoints, hints, and any early assumptions.</p>
+        <pre><code>nmap -sC -sV target.local</code></pre>
+
+        <h2>Exploit Path</h2>
+        <p>Describe the chain cleanly. Screenshots, request snippets, payloads, and diagrams fit well here.</p>
+
+        <h2>Lessons</h2>
+        <ul class="bullet-list">
+          <li>What signal mattered?</li>
+          <li>What rabbit hole should future-you avoid?</li>
+          <li>What tool, script, or checklist came out of this?</li>
+        </ul>
+      </article>
+    </main>
+    <script src="../scripts/app.js"></script>
+  </body>
+</html>
