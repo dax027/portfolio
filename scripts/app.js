@@ -3,6 +3,7 @@
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const state = {
     motionPaused: prefersReducedMotion.matches,
+    theme: readPreferredTheme(),
     activityIndex: 0,
     activityTimer: null,
     animationFrame: null
@@ -10,6 +11,39 @@
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+  function readPreferredTheme() {
+    try {
+      return window.localStorage.getItem("portfolio-theme") === "red" ? "red" : "terminal";
+    } catch (_error) {
+      return "terminal";
+    }
+  }
+
+  function writePreferredTheme() {
+    try {
+      window.localStorage.setItem("portfolio-theme", state.theme);
+    } catch (_error) {
+      // Local files or strict browser settings may block storage; the toggle still works for the current page.
+    }
+  }
+
+  function cssVar(name) {
+    return window.getComputedStyle(document.body).getPropertyValue(name).trim();
+  }
+
+  function canvasPalette() {
+    return ["--cyan", "--green", "--pink", "--amber", "--blue"].map(cssVar).filter(Boolean);
+  }
+
+  function applyTheme({ persist = false, refreshCanvas = false } = {}) {
+    document.body.classList.toggle("theme-red", state.theme === "red");
+    if (persist) writePreferredTheme();
+    if (refreshCanvas && !state.motionPaused) {
+      stopCanvas();
+      startCanvas();
+    }
+  }
 
   function el(tag, options = {}, children = []) {
     const node = document.createElement(tag);
@@ -207,6 +241,25 @@
     items.forEach((item) => observer.observe(item));
   }
 
+  function setupThemeToggle() {
+    const button = $("#theme-toggle");
+    if (!button) return;
+
+    const sync = () => {
+      const isRed = state.theme === "red";
+      button.setAttribute("aria-pressed", String(isRed));
+      button.textContent = isRed ? "Terminal mode" : "Sith mode";
+    };
+
+    button.addEventListener("click", () => {
+      state.theme = state.theme === "red" ? "terminal" : "red";
+      applyTheme({ persist: true, refreshCanvas: true });
+      sync();
+    });
+
+    sync();
+  }
+
   function setupMotionToggle() {
     const button = $("#motion-toggle");
     if (!button) return;
@@ -256,8 +309,9 @@
     const canvas = $("#signal-canvas");
     if (!canvas) return;
     const context = canvas.getContext("2d");
-    const glyphs = "01ABCDEF{}[]/<>#$";
-    const packets = Array.from({ length: 82 }, () => makePacket());
+    const glyphs = state.theme === "red" ? "01T800HK{}[]/<>#$" : "01ABCDEF{}[]/<>#$";
+    const palette = canvasPalette();
+    const packets = Array.from({ length: 82 }, () => makePacket(false, window.innerWidth, window.innerHeight, palette));
     let width = 0;
     let height = 0;
     let dpr = 1;
@@ -275,14 +329,14 @@
 
     function draw() {
       context.clearRect(0, 0, width, height);
-      context.fillStyle = "rgba(5, 6, 9, 0.52)";
+      context.fillStyle = cssVar("--canvas-wash") || "rgba(5, 6, 9, 0.52)";
       context.fillRect(0, 0, width, height);
 
       drawGrid(context, width, height);
       packets.forEach((packet) => {
         packet.x += packet.vx;
         packet.y += packet.vy;
-        if (packet.x > width + 80 || packet.y > height + 80 || packet.y < -80) Object.assign(packet, makePacket(true, width, height));
+        if (packet.x > width + 80 || packet.y > height + 80 || packet.y < -80) Object.assign(packet, makePacket(true, width, height, palette));
 
         context.globalAlpha = packet.alpha;
         context.fillStyle = packet.color;
@@ -314,7 +368,7 @@
   function drawGrid(context, width, height) {
     const spacing = 82;
     context.globalAlpha = 0.24;
-    context.strokeStyle = "rgba(98, 255, 226, 0.16)";
+    context.strokeStyle = cssVar("--grid-glow") || "rgba(98, 255, 226, 0.16)";
     context.lineWidth = 1;
     context.beginPath();
     for (let x = 0; x < width; x += spacing) {
@@ -329,8 +383,8 @@
     context.globalAlpha = 1;
   }
 
-  function makePacket(fromEdge = false, width = window.innerWidth, height = window.innerHeight) {
-    const colors = ["#62ffe2", "#9dff6f", "#ff4fd8", "#ffd166", "#7aa8ff"];
+  function makePacket(fromEdge = false, width = window.innerWidth, height = window.innerHeight, colors = canvasPalette()) {
+    if (!colors.length) colors = ["#62ffe2", "#9dff6f", "#ff4fd8", "#ffd166", "#7aa8ff"];
     return {
       x: fromEdge ? -Math.random() * 120 : Math.random() * width,
       y: Math.random() * height,
@@ -352,8 +406,11 @@
     return ["INPUT", "TEXTAREA", "SELECT"].includes(node.tagName) || node.isContentEditable;
   }
 
+  applyTheme();
+
   if (content) {
     render();
+    setupThemeToggle();
     setupMotionToggle();
   } else if (!state.motionPaused) {
     startCanvas();

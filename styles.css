@@ -14,6 +14,17 @@
   --line: rgba(98, 255, 226, 0.22);
   --line-strong: rgba(98, 255, 226, 0.48);
   --shadow: 0 0 34px rgba(98, 255, 226, 0.12);
+  --page-background:
+    linear-gradient(90deg, rgba(98, 255, 226, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(98, 255, 226, 0.035) 1px, transparent 1px),
+    linear-gradient(145deg, #050609 0%, #081017 38%, #050609 100%);
+  --scanline-background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 50%, rgba(0, 0, 0, 0.08) 50%),
+    linear-gradient(90deg, rgba(255, 79, 216, 0.04), rgba(98, 255, 226, 0.04), rgba(157, 255, 111, 0.025));
+  --control-bg: rgba(6, 17, 22, 0.76);
+  --control-border: rgba(98, 255, 226, 0.28);
+  --grid-glow: rgba(98, 255, 226, 0.16);
+  --canvas-wash: rgba(5, 6, 9, 0.52);
   --font-ui: "Inter", "Segoe UI", system-ui, sans-serif;
   --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
@@ -30,10 +41,7 @@ html {
 body {
   min-width: 320px;
   margin: 0;
-  background:
-    linear-gradient(90deg, rgba(98, 255, 226, 0.05) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(98, 255, 226, 0.035) 1px, transparent 1px),
-    linear-gradient(145deg, #050609 0%, #081017 38%, #050609 100%);
+  background: var(--page-background);
   background-size: 82px 82px, 82px 82px, auto;
   color: var(--text);
   font-family: var(--font-ui);
@@ -42,6 +50,68 @@ body {
   overflow-x: hidden;
 }
 
+
+body.theme-red {
+  --bg: #070304;
+  --bg-2: #170607;
+  --panel: rgba(24, 5, 7, 0.8);
+  --panel-strong: rgba(38, 6, 8, 0.95);
+  --text: #fff0e8;
+  --muted: #c79284;
+  --cyan: #ff2a2a;
+  --green: #ffb000;
+  --pink: #ff003c;
+  --amber: #ff6b00;
+  --blue: #ff4b4b;
+  --line: rgba(255, 42, 42, 0.28);
+  --line-strong: rgba(255, 42, 42, 0.58);
+  --shadow: 0 0 36px rgba(255, 0, 40, 0.16);
+  --page-background:
+    linear-gradient(90deg, rgba(255, 42, 42, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 176, 0, 0.032) 1px, transparent 1px),
+    linear-gradient(145deg, #070304 0%, #160608 44%, #050102 100%);
+  --scanline-background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028) 50%, rgba(0, 0, 0, 0.11) 50%),
+    linear-gradient(90deg, rgba(255, 0, 60, 0.08), rgba(255, 42, 42, 0.055), rgba(255, 176, 0, 0.035));
+  --control-bg: rgba(20, 4, 6, 0.82);
+  --control-border: rgba(255, 42, 42, 0.38);
+  --grid-glow: rgba(255, 0, 40, 0.2);
+  --canvas-wash: rgba(7, 3, 4, 0.55);
+}
+
+body.theme-red .topbar {
+  background: rgba(7, 3, 4, 0.78);
+  border-bottom-color: rgba(255, 42, 42, 0.2);
+}
+
+body.theme-red .terminal-panel,
+body.theme-red .signal-card,
+body.theme-red .experience-card,
+body.theme-red .skill-card,
+body.theme-red .project-card,
+body.theme-red .writeup-card {
+  background: linear-gradient(180deg, rgba(31, 5, 7, 0.86), rgba(8, 2, 3, 0.82));
+}
+
+body.theme-red .terminal-panel {
+  box-shadow: 0 0 38px rgba(255, 0, 40, 0.18), inset 0 0 70px rgba(255, 42, 42, 0.06);
+}
+
+body.theme-red .command-bar {
+  background: rgba(12, 2, 3, 0.86);
+}
+
+body.theme-red .skill-card li,
+body.theme-red .tag-list li {
+  border-color: rgba(255, 75, 75, 0.32);
+  background: rgba(255, 42, 42, 0.09);
+  color: #ffd0c8;
+}
+
+body.theme-red .status-pill {
+  border-color: rgba(255, 176, 0, 0.42);
+  background: rgba(255, 176, 0, 0.1);
+}
 body.motion-paused *,
 body.motion-paused *::before,
 body.motion-paused *::after {
@@ -97,8 +167,7 @@ button {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 50%, rgba(0, 0, 0, 0.08) 50%),
-    linear-gradient(90deg, rgba(255, 79, 216, 0.04), rgba(98, 255, 226, 0.04), rgba(157, 255, 111, 0.025));
+    var(--scanline-background);
   background-size: 100% 4px, 100% 100%;
   mix-blend-mode: screen;
   opacity: 0.38;
@@ -171,8 +240,8 @@ button {
 .contact-links a,
 .ghost-control {
   min-height: 42px;
-  border: 1px solid rgba(98, 255, 226, 0.28);
-  background: rgba(6, 17, 22, 0.76);
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
   color: var(--text);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
   transition: border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, transform 180ms ease;
@@ -197,7 +266,7 @@ button {
 .ghost-control:focus-visible {
   border-color: var(--cyan);
   color: var(--text);
-  box-shadow: 0 0 22px rgba(98, 255, 226, 0.16);
+  box-shadow: 0 0 22px var(--grid-glow);
   transform: translateY(-1px);
   outline: none;
 }
@@ -660,6 +729,13 @@ h2 {
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 0.82rem;
+}
+
+.footer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: flex-end;
 }
 
 .ghost-control {
