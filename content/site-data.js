@@ -3,12 +3,12 @@ window.PORTFOLIO_CONTENT = {
     name: "Dax Dickenson",
     handle: "dax@portfolio",
     kicker: "AI Architecture / Security Research",
-    role: "Sr AI Systems Architect / healthcare AI leader / aspiring AI red teamer",
+    role: "Sr AI Systems Architect / healthcare AI leader / AI security practitioner",
     location: "Orlando, Florida",
     summary:
-      "AI systems architect with healthcare data science and clinical operations roots, now building toward offensive security, AI risk, and red teaming at the intersection of models, systems, and patient impact.",
+      "AI systems architect with healthcare data science and clinical operations roots, focused on offensive security, AI risk, and red teaming at the intersection of models, systems, and patient impact.",
     contactCopy:
-      "I am especially interested in AI red teaming, adversarial testing, AI governance, MLOps risk, healthcare security, and architecture work that turns complex systems into safer operational reality.",
+      "I am especially interested in AI red teaming, adversarial testing, NIST and OWASP-aligned AI risk, MLOps security, healthcare security, and architecture work that turns complex systems into safer operational reality.",
     footer: "AI architecture, security research, and field notes.",
     actions: [
       { label: "Resume", href: "#resume" },
@@ -20,14 +20,14 @@ window.PORTFOLIO_CONTENT = {
   signals: [
     { label: "Current role", value: "Sr AI Systems Architect" },
     { label: "Security path", value: "OSCP in progress" },
-    { label: "Target lane", value: "AI red teaming" },
+    { label: "Target lane", value: "Healthcare AI red teaming" },
     { label: "Core background", value: "Data science / engineering" }
   ],
 
   activity: [
     "career vector updated: AI architecture plus offensive security",
     "certification track active: OSCP in progress",
-    "research target calibrated: AI red teaming",
+    "research target calibrated: healthcare AI red teaming",
     "watching /writeups for CTF and lab artifacts",
     "domain context loaded: healthcare AI, clinical operations, MLOps"
   ],
@@ -41,7 +41,7 @@ window.PORTFOLIO_CONTENT = {
       bullets: [
         "Architecting AI systems with a focus on scalable deployment, governance, clinical alignment, and operational reliability grounded in firsthand clinical operations experience.",
         "Bringing executive-level analytics leadership into hands-on system design, risk translation, and implementation strategy.",
-        "Expanding toward AI security and red teaming by studying offensive methodology, model behavior, tool abuse, and adversarial testing patterns."
+        "Expanding into AI security and red teaming through offensive methodology, NIST AI RMF and OWASP LLM risk mapping, model behavior analysis, and adversarial testing patterns."
       ],
       tags: ["AI architecture", "Healthcare", "AI security"]
     },
@@ -88,8 +88,8 @@ window.PORTFOLIO_CONTENT = {
       location: "Home lab",
       bullets: [
         "Working through the OSCP path with emphasis on enumeration, exploit fundamentals, privilege escalation, and disciplined technical documentation.",
-        "Building public notes through CTFs, labs, and write-ups that connect offensive security methodology to AI systems and agentic workflows.",
-        "Researching prompt injection, tool misuse, unsafe autonomy, and evaluation patterns for AI red teaming."
+        "Building public notes through CTFs, labs, and write-ups that connect offensive security methodology to AI systems, LLMs, and agentic workflows.",
+        "Researching prompt injection, tool misuse, unsafe autonomy, model robustness, and evaluation patterns for AI red teaming."
       ],
       tags: ["OSCP", "CTF", "AI red teaming"]
     }
@@ -98,15 +98,19 @@ window.PORTFOLIO_CONTENT = {
   skills: [
     {
       group: "AI Architecture",
-      items: ["Healthcare AI", "MLOps", "AI governance", "Explainability", "Clinical alignment"]
+      items: ["Healthcare AI", "MLOps", "AI governance", "Azure AI workloads", "Clinical alignment"]
     },
     {
       group: "Security",
-      items: ["Threat modeling", "Security governance", "Access management", "Cybersecurity standards", "Risk translation"]
+      items: ["Threat modeling", "Security governance", "NIST AI RMF", "OWASP Top 10 for LLMs", "Risk translation"]
     },
     {
       group: "AI Red Teaming",
-      items: ["Prompt injection", "Agent tool abuse", "Adversarial testing", "Evaluation design", "Model behavior"]
+      items: ["Prompt injection", "Agent tool abuse", "Adversarial ML", "Model robustness", "Evaluation design"]
+    },
+    {
+      group: "Engineering & Data Science",
+      items: ["Python", "R", "SQL", "Large language models", "AI agent orchestration"]
     },
     {
       group: "Clinical Systems",
@@ -114,11 +118,11 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       group: "Offense Lab",
-      items: ["OSCP methodology", "Enumeration", "Web exploitation", "Privilege escalation", "CTF write-ups"]
+      items: ["OSCP methodology", "Kali Linux", "Burp Suite", "Wireshark", "CTF write-ups"]
     },
     {
       group: "Education",
-      items: ["M.S. Data Science", "B.S. Information Systems Technology", "Epic Cogito", "Epic Caboodle", "Leadership strategy"]
+      items: ["M.S. Data Science", "B.S. Information Systems Technology", "TryHackMe SEC1", "PenTest+ study", "Epic Cogito"]
     }
   ],
 
@@ -127,8 +131,8 @@ window.PORTFOLIO_CONTENT = {
       title: "AI Red Teaming Lab",
       status: "In progress",
       summary:
-        "A research space for prompt injection, unsafe tool use, model behavior, evaluation design, and adversarial testing patterns.",
-      tags: ["AI security", "Red teaming", "Research"],
+        "A research space for prompt injection, unsafe tool use, adversarial ML, model robustness, and NIST/OWASP-aligned testing patterns.",
+      tags: ["AI security", "OWASP LLM", "NIST AI RMF"],
       href: "#writeups",
       cta: "Open research"
     },
@@ -145,7 +149,7 @@ window.PORTFOLIO_CONTENT = {
       title: "Healthcare AI Risk Notebook",
       status: "Planned",
       summary:
-        "Field notes on AI governance, clinical model risk, explainability, MLOps controls, and security concerns in healthcare AI systems.",
+        "Field notes on AI governance, clinical model risk, MLOps controls, Azure AI workloads, and security concerns in healthcare AI systems.",
       tags: ["Healthcare", "AI governance", "Risk"],
       href: "#resume",
       cta: "Trace notes"
@@ -170,7 +174,7 @@ window.PORTFOLIO_CONTENT = {
       date: "2026-05-12",
       status: "Draft",
       summary:
-        "Early notes on prompt injection, model behavior, agent tool use, and how traditional offensive methodology maps to AI systems.",
+        "Early notes on prompt injection, model behavior, agent tool use, OWASP LLM risks, and how traditional offensive methodology maps to AI systems.",
       tags: ["AI security", "Prompt injection", "Research"],
       href: "#contact",
       cta: "Inspect notes"
