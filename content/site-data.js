@@ -1,162 +1,163 @@
 window.PORTFOLIO_CONTENT = {
   profile: {
-    name: "Your Name",
-    handle: "operator@portfolio",
+    name: "Dax Dickenson",
+    handle: "dax@portfolio",
     kicker: "Cyber portfolio",
-    role: "Security-focused builder / CTF operator / systems tinkerer",
+    role: "Architect / security practitioner / aspiring AI red teamer",
     location: "United States",
     summary:
-      "A living archive for resume highlights, security builds, lab notes, and CTF write-ups. Swap this copy with the sharpest version of your own story.",
+      "A living archive for architecture work, offensive security study, lab builds, and CTF write-ups as I move deeper into AI red teaming.",
     contactCopy:
-      "Use this space for the kind of work you want to attract: security engineering, red-team labs, cloud hardening, detection work, research, or build partnerships.",
-    footer: "Static, modular, and ready for GitHub Pages.",
+      "I am especially interested in security architecture, adversarial testing, AI red teaming, lab-driven research, and practical defensive engineering.",
+    footer: "Architecture, security research, and field notes.",
     actions: [
       { label: "Resume", href: "#resume" },
       { label: "Write-ups", href: "#writeups" },
-      { label: "GitHub", href: "https://github.com/your-handle" }
+      { label: "GitHub", href: "https://github.com/dax027" }
     ]
   },
 
   signals: [
-    { label: "Current focus", value: "AppSec labs" },
-    { label: "CTF lane", value: "Web / pwn / forensics" },
-    { label: "Build style", value: "Automate the boring parts" },
-    { label: "Availability", value: "Open to signal" }
+    { label: "Current focus", value: "OSCP path" },
+    { label: "Target lane", value: "AI red teaming" },
+    { label: "Build style", value: "Architecture into action" },
+    { label: "Recent shift", value: "Exec Director to Architect" }
   ],
 
   activity: [
-    "parsed resume index: 4 experience nodes loaded",
-    "watching /writeups for new CTF artifacts",
-    "calibrated skill matrix: appsec, cloud, scripting",
-    "build queue armed: homelab telemetry dashboard",
-    "threat model refreshed: assume breach, verify signal"
+    "career vector updated: architecture plus offensive security",
+    "certification track active: OSCP in progress",
+    "recent milestone logged: THM SEC1 passed",
+    "watching /writeups for CTF and lab artifacts",
+    "target state calibrated: AI red teaming"
   ],
 
   experience: [
     {
-      role: "Security Engineer",
-      organization: "Company or Team",
-      period: "2025 - Present",
-      location: "Remote",
+      role: "Architect",
+      organization: "Current organization",
+      period: "2026 - Present",
+      location: "United States",
       bullets: [
-        "Replace this with measurable impact: vulnerabilities reduced, controls shipped, alerts tuned, or systems protected.",
-        "Describe one technical arena you own, such as cloud security, application review, detection engineering, or incident response.",
-        "Keep each bullet outcome-focused so the page doubles as a strong resume."
+        "Recently transitioned from an Executive Director role into an Architect role to focus more deeply on technical systems, security, and implementation strategy.",
+        "Bridge leadership context with hands-on architecture: turning business needs, risk, and constraints into technical direction that teams can execute.",
+        "Building toward AI red teaming by combining architecture, offensive security practice, and lab-based research."
       ],
-      tags: ["AppSec", "Cloud", "Detection"]
+      tags: ["Architecture", "Security", "AI red teaming"]
     },
     {
-      role: "Infrastructure / Systems Role",
-      organization: "Previous Organization",
-      period: "2023 - 2025",
-      location: "Hybrid",
+      role: "Executive Director",
+      organization: "Previous role",
+      period: "Prior to 2026",
+      location: "United States",
       bullets: [
-        "Summarize operational scope: endpoints, networks, identity, Linux, Windows, automation, or production support.",
-        "Call out one build that made life easier for the team: scripts, dashboards, runbooks, or safer deployment flows."
+        "Led at an executive level before intentionally stepping back into a more technical architecture path.",
+        "Carried forward leadership experience in strategy, prioritization, stakeholder communication, and operational accountability."
       ],
-      tags: ["Linux", "Automation", "Identity"]
+      tags: ["Leadership", "Strategy", "Operations"]
     },
     {
-      role: "Independent Security Lab",
-      organization: "Personal Research",
+      role: "Offensive Security Study",
+      organization: "Personal research",
       period: "Ongoing",
       location: "Home lab",
       bullets: [
-        "Track your CTF write-ups, exploit notes, malware analysis practice, packet captures, and defensive experiments here.",
-        "Link finished write-ups below so readers can move from resume claims to technical proof."
+        "Working through the OSCP path with a focus on enumeration discipline, exploit fundamentals, privilege escalation, and clear technical documentation.",
+        "Recently passed TryHackMe's SEC1 certification and continuing to build public notes through CTFs, labs, and security write-ups.",
+        "Exploring how offensive security methods apply to AI systems, model behavior, prompt injection, tool abuse, and agentic workflows."
       ],
-      tags: ["CTF", "Research", "Homelab"]
+      tags: ["OSCP", "CTF", "AI security"]
     }
   ],
 
   skills: [
     {
       group: "Offense",
-      items: ["Web exploitation", "Privilege escalation", "Recon", "Payload debugging", "CTF methodology"]
+      items: ["Enumeration", "Web exploitation", "Privilege escalation", "Exploit notes", "CTF methodology"]
     },
     {
       group: "Defense",
-      items: ["Detection logic", "SIEM triage", "Threat modeling", "Hardening", "Incident notes"]
+      items: ["Threat modeling", "Security architecture", "Hardening", "Risk translation", "Incident notes"]
     },
     {
-      group: "Systems",
-      items: ["Linux", "Windows", "Networking", "Containers", "Identity"]
+      group: "AI Security",
+      items: ["AI red teaming", "Prompt injection", "Agent workflows", "Tool abuse", "Evaluation design"]
     },
     {
       group: "Build",
-      items: ["Python", "PowerShell", "JavaScript", "Dashboards", "Automation"]
+      items: ["Python", "PowerShell", "JavaScript", "Automation", "Technical writing"]
     }
   ],
 
   projects: [
     {
-      title: "Homelab Telemetry Console",
+      title: "OSCP Study Log",
       status: "Concept",
       summary:
-        "A compact dashboard for collecting host, network, and alert telemetry from a home security lab.",
-      tags: ["SIEM", "Python", "Dashboards"],
-      href: "#contact",
-      cta: "Open project"
+        "A structured archive for enumeration patterns, privilege escalation notes, exploit debugging, and lessons from the OSCP path.",
+      tags: ["OSCP", "Methodology", "Notes"],
+      href: "#writeups",
+      cta: "View log"
     },
     {
-      title: "CTF Toolkit",
+      title: "AI Red Teaming Lab",
       status: "In progress",
       summary:
-        "A reusable notes, scripts, and command-snippet collection for faster CTF setup and post-game write-ups.",
-      tags: ["CTF", "Automation", "Notes"],
+        "A growing research space for prompt injection, unsafe tool use, model behavior, and adversarial testing patterns.",
+      tags: ["AI security", "Red teaming", "Research"],
       href: "#writeups",
-      cta: "View notes"
+      cta: "Open research"
     },
     {
-      title: "Cloud Attack Path Lab",
+      title: "Architecture Field Notes",
       status: "Planned",
       summary:
-        "A deliberately vulnerable cloud sandbox for practicing identity abuse paths and documenting defensive controls.",
-      tags: ["Cloud", "IAM", "Threat modeling"],
+        "A practical notebook for translating executive context, system design, and security constraints into implementable architecture.",
+      tags: ["Architecture", "Strategy", "Security"],
       href: "#resume",
-      cta: "Trace path"
+      cta: "Trace notes"
     }
   ],
 
   writeups: [
     {
-      title: "CTF Write-up Template",
-      event: "Practice Arena",
+      title: "OSCP-Style Write-up Template",
+      event: "Practice lab",
       date: "2026-05-12",
       status: "Template",
       summary:
-        "Use this slot for challenge context, enumeration path, exploit chain, flags or redacted proof, and lessons learned.",
-      tags: ["Web", "Methodology", "Notes"],
+        "A reusable format for documenting target context, enumeration, exploitation, privilege escalation, proof, and lessons learned.",
+      tags: ["OSCP", "Methodology", "Notes"],
       href: "writeups/ctf-template.html",
       cta: "Read write-up"
     },
     {
-      title: "Packet Capture Field Notes",
-      event: "Forensics Lab",
+      title: "AI Red Teaming Notes",
+      event: "Research track",
       date: "2026-05-12",
       status: "Draft",
       summary:
-        "A place to document traffic hypotheses, filters, evidence, and the final story extracted from noisy packets.",
-      tags: ["Forensics", "Wireshark", "PCAP"],
+        "Early notes on prompt injection, model behavior, agent tool use, and how traditional offensive methodology maps to AI systems.",
+      tags: ["AI security", "Prompt injection", "Research"],
       href: "#contact",
       cta: "Inspect notes"
     },
     {
-      title: "Exploit Dev Scratchpad",
-      event: "Binary Practice",
+      title: "THM SEC1 Reflection",
+      event: "TryHackMe",
       date: "2026-05-12",
-      status: "Backlog",
+      status: "Passed",
       summary:
-        "Track offsets, protections, payload shape, debugging transcripts, and mistakes worth remembering.",
-      tags: ["Pwn", "Debugging", "Linux"],
+        "A short reflection slot for what the SEC1 path reinforced and how it feeds the OSCP and AI red teaming roadmap.",
+      tags: ["SEC1", "Security fundamentals", "Learning path"],
       href: "#contact",
-      cta: "Open scratchpad"
+      cta: "Open reflection"
     }
   ],
 
   contact: [
-    { label: "GitHub", href: "https://github.com/your-handle" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/your-handle" },
-    { label: "Email", href: "mailto:you@example.com" }
+    { label: "GitHub", href: "https://github.com/dax027" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/daxdickenson/" },
+    { label: "Email", href: "mailto:dax027@gmail.com" }
   ]
 };
