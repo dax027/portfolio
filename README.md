@@ -1,20 +1,36 @@
-# Terminal Portfolio
+# Dax Dickenson Portfolio
 
-A dependency-free static site for GitHub Pages. It is built as a small personal security archive: resume highlights, builds, and CTF/write-up cards are rendered from one editable content file.
+A custom static portfolio for resume highlights, security research, lab builds, and CTF write-ups. The site is intentionally lightweight: no CMS, no template framework, no build pipeline, and no runtime dependencies. GitHub Pages can serve it directly from the repository root.
 
-## Edit your content
+## Site Structure
 
-Most personal data lives in `content/site-data.js`.
+```text
+index.html              Main page shell
+styles.css              Visual system, layout, and responsive styling
+content/site-data.js    Editable portfolio content
+scripts/app.js          Rendering, filtering, and animation behavior
+writeups/               Standalone write-up pages
+```
 
-- Update `profile` for your name, role, summary, contact copy, and primary links.
-- Update `experience` and `skills` for resume content.
-- Update `projects` for builds, labs, and research.
-- Update `writeups` for CTFs or technical posts.
+## Content Model
 
-## Add write-ups
+Most public-facing text is stored in `content/site-data.js`:
 
-Duplicate `writeups/ctf-template.html`, rename it, and point a `writeups` entry in `content/site-data.js` at the new file.
+- `profile` controls the hero, summary, primary links, and footer line.
+- `signals` controls the four quick-status cards near the top of the page.
+- `experience` and `skills` power the resume section.
+- `projects` lists builds, labs, and research tracks.
+- `writeups` lists CTFs, study notes, and technical posts.
+- `contact` controls the public contact links.
 
-## GitHub Pages
+## Write-ups
 
-Push this repository to GitHub, then enable Pages from the repository settings. Use the root of the default branch as the publishing source.
+Use `writeups/ctf-template.html` as a starting point for new CTF or lab notes. After creating a new page, add an entry for it in the `writeups` array inside `content/site-data.js`.
+
+## Local Preview
+
+Open `index.html` directly in a browser. Because the site uses plain HTML, CSS, and JavaScript, no local server is required for normal previewing.
+
+## Deployment
+
+The repository is designed for GitHub Pages with the root of `main` as the publishing source.
