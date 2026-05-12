@@ -21,7 +21,7 @@ window.PORTFOLIO_CONTENT = {
     { label: "Current role", value: "Sr AI Systems Architect" },
     { label: "Security path", value: "OSCP in progress" },
     { label: "Target lane", value: "AI red teaming" },
-    { label: "Clinical foundation", value: "Critical care paramedic" }
+    { label: "Core background", value: "Data science / engineering" }
   ],
 
   activity: [
