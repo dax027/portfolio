@@ -3,13 +3,13 @@ window.PORTFOLIO_CONTENT = {
     name: "Dax Dickenson",
     handle: "dax@portfolio",
     kicker: "Cyber portfolio",
-    role: "Architect / security practitioner / aspiring AI red teamer",
-    location: "United States",
+    role: "Sr AI Systems Architect / healthcare AI leader / aspiring AI red teamer",
+    location: "Orlando, Florida",
     summary:
-      "A living archive for architecture work, offensive security study, lab builds, and CTF write-ups as I move deeper into AI red teaming.",
+      "AI systems architect with a healthcare data science background, now building toward offensive security, AI risk, and red teaming at the intersection of models, systems, and clinical impact.",
     contactCopy:
-      "I am especially interested in security architecture, adversarial testing, AI red teaming, lab-driven research, and practical defensive engineering.",
-    footer: "Architecture, security research, and field notes.",
+      "I am especially interested in AI red teaming, adversarial testing, AI governance, MLOps risk, healthcare security, and architecture work that turns complex systems into safer operational reality.",
+    footer: "AI architecture, security research, and field notes.",
     actions: [
       { label: "Resume", href: "#resume" },
       { label: "Write-ups", href: "#writeups" },
@@ -18,43 +18,68 @@ window.PORTFOLIO_CONTENT = {
   },
 
   signals: [
-    { label: "Current focus", value: "OSCP path" },
+    { label: "Current role", value: "Sr AI Systems Architect" },
+    { label: "Security path", value: "OSCP in progress" },
     { label: "Target lane", value: "AI red teaming" },
-    { label: "Build style", value: "Architecture into action" },
-    { label: "Recent shift", value: "Exec Director to Architect" }
+    { label: "Domain", value: "Healthcare AI" }
   ],
 
   activity: [
-    "career vector updated: architecture plus offensive security",
+    "career vector updated: AI architecture plus offensive security",
     "certification track active: OSCP in progress",
-    "recent milestone logged: THM SEC1 passed",
+    "research target calibrated: AI red teaming",
     "watching /writeups for CTF and lab artifacts",
-    "target state calibrated: AI red teaming"
+    "domain context loaded: healthcare AI, governance, MLOps"
   ],
 
   experience: [
     {
-      role: "Architect",
-      organization: "Current organization",
-      period: "2026 - Present",
-      location: "United States",
+      role: "Sr AI Systems Architect",
+      organization: "AdventHealth",
+      period: "May 2026 - Present",
+      location: "Orlando, Florida",
       bullets: [
-        "Recently transitioned from an Executive Director role into an Architect role to focus more deeply on technical systems, security, and implementation strategy.",
-        "Bridge leadership context with hands-on architecture: turning business needs, risk, and constraints into technical direction that teams can execute.",
-        "Building toward AI red teaming by combining architecture, offensive security practice, and lab-based research."
+        "Architecting AI systems with a focus on scalable deployment, governance, clinical alignment, and operational reliability.",
+        "Bringing executive-level analytics leadership into hands-on system design, risk translation, and implementation strategy.",
+        "Expanding toward AI security and red teaming by studying offensive methodology, model behavior, tool abuse, and adversarial testing patterns."
       ],
-      tags: ["Architecture", "Security", "AI red teaming"]
+      tags: ["AI architecture", "Healthcare", "AI security"]
     },
     {
-      role: "Executive Director",
-      organization: "Previous role",
-      period: "Prior to 2026",
-      location: "United States",
+      role: "Executive Director of Clinical Data Science and Analytics",
+      organization: "AdventHealth",
+      period: "May 2024 - May 2026",
+      location: "Orlando, Florida",
       bullets: [
-        "Led at an executive level before intentionally stepping back into a more technical architecture path.",
-        "Carried forward leadership experience in strategy, prioritization, stakeholder communication, and operational accountability."
+        "Led strategic direction and execution for advanced analytics and AI initiatives across clinical and operational domains.",
+        "Managed implementation of data visualization and business intelligence tools while promoting machine learning adoption and education.",
+        "Built a culture of continuous learning across analytics teams and translated complex AI opportunities into practical healthcare outcomes."
       ],
-      tags: ["Leadership", "Strategy", "Operations"]
+      tags: ["AI leadership", "Clinical analytics", "Strategy"]
+    },
+    {
+      role: "Director of Business Analytics and Data Science",
+      organization: "AdventHealth",
+      period: "Aug 2020 - May 2024",
+      location: "Orlando, Florida",
+      bullets: [
+        "Directed an advanced analytics roadmap spanning data science, data engineering, machine learning, visualization, and BI platforms.",
+        "Led analytics product migration across EMRs and upskilled the analytics team through major technical and operational change.",
+        "Chaired Security and BI Platform Committees to align technical controls, integrations, data privacy, and cybersecurity standards."
+      ],
+      tags: ["Data science", "Security governance", "MLOps"]
+    },
+    {
+      role: "Advanced Analytics Manager",
+      organization: "AdventHealth",
+      period: "May 2018 - Aug 2020",
+      location: "Orlando, Florida",
+      bullets: [
+        "Expanded data science and data engineering capabilities while developing enterprise data warehouse adoption strategies.",
+        "Partnered with IT on reporting capabilities, access management, and secure analytics delivery.",
+        "Served as a liaison between business and technology leaders, translating operational needs into analytics solutions."
+      ],
+      tags: ["Data engineering", "Access management", "Analytics"]
     },
     {
       role: "Offensive Security Study",
@@ -62,37 +87,54 @@ window.PORTFOLIO_CONTENT = {
       period: "Ongoing",
       location: "Home lab",
       bullets: [
-        "Working through the OSCP path with a focus on enumeration discipline, exploit fundamentals, privilege escalation, and clear technical documentation.",
-        "Recently passed TryHackMe's SEC1 certification and continuing to build public notes through CTFs, labs, and security write-ups.",
-        "Exploring how offensive security methods apply to AI systems, model behavior, prompt injection, tool abuse, and agentic workflows."
+        "Working through the OSCP path with emphasis on enumeration, exploit fundamentals, privilege escalation, and disciplined technical documentation.",
+        "Building public notes through CTFs, labs, and write-ups that connect offensive security methodology to AI systems and agentic workflows.",
+        "Researching prompt injection, tool misuse, unsafe autonomy, and evaluation patterns for AI red teaming."
       ],
-      tags: ["OSCP", "CTF", "AI security"]
+      tags: ["OSCP", "CTF", "AI red teaming"]
     }
   ],
 
   skills: [
     {
-      group: "Offense",
-      items: ["Enumeration", "Web exploitation", "Privilege escalation", "Exploit notes", "CTF methodology"]
+      group: "AI Architecture",
+      items: ["Healthcare AI", "MLOps", "AI governance", "Explainability", "Clinical alignment"]
     },
     {
-      group: "Defense",
-      items: ["Threat modeling", "Security architecture", "Hardening", "Risk translation", "Incident notes"]
+      group: "Security",
+      items: ["Threat modeling", "Security governance", "Access management", "Cybersecurity standards", "Risk translation"]
     },
     {
-      group: "AI Security",
-      items: ["AI red teaming", "Prompt injection", "Agent workflows", "Tool abuse", "Evaluation design"]
+      group: "AI Red Teaming",
+      items: ["Prompt injection", "Agent tool abuse", "Adversarial testing", "Evaluation design", "Model behavior"]
     },
     {
-      group: "Build",
-      items: ["Python", "PowerShell", "JavaScript", "Automation", "Technical writing"]
+      group: "Data Systems",
+      items: ["Data science", "Data engineering", "BI platforms", "SQL Server", "Enterprise analytics"]
+    },
+    {
+      group: "Offense Lab",
+      items: ["OSCP methodology", "Enumeration", "Web exploitation", "Privilege escalation", "CTF write-ups"]
+    },
+    {
+      group: "Education",
+      items: ["M.S. Data Science", "B.S. Information Systems Technology", "Epic Cogito", "Epic Caboodle", "Leadership strategy"]
     }
   ],
 
   projects: [
     {
+      title: "AI Red Teaming Lab",
+      status: "In progress",
+      summary:
+        "A research space for prompt injection, unsafe tool use, model behavior, evaluation design, and adversarial testing patterns.",
+      tags: ["AI security", "Red teaming", "Research"],
+      href: "#writeups",
+      cta: "Open research"
+    },
+    {
       title: "OSCP Study Log",
-      status: "Concept",
+      status: "Active",
       summary:
         "A structured archive for enumeration patterns, privilege escalation notes, exploit debugging, and lessons from the OSCP path.",
       tags: ["OSCP", "Methodology", "Notes"],
@@ -100,20 +142,11 @@ window.PORTFOLIO_CONTENT = {
       cta: "View log"
     },
     {
-      title: "AI Red Teaming Lab",
-      status: "In progress",
-      summary:
-        "A growing research space for prompt injection, unsafe tool use, model behavior, and adversarial testing patterns.",
-      tags: ["AI security", "Red teaming", "Research"],
-      href: "#writeups",
-      cta: "Open research"
-    },
-    {
-      title: "Architecture Field Notes",
+      title: "Healthcare AI Risk Notebook",
       status: "Planned",
       summary:
-        "A practical notebook for translating executive context, system design, and security constraints into implementable architecture.",
-      tags: ["Architecture", "Strategy", "Security"],
+        "Field notes on AI governance, clinical model risk, explainability, MLOps controls, and security concerns in healthcare AI systems.",
+      tags: ["Healthcare", "AI governance", "Risk"],
       href: "#resume",
       cta: "Trace notes"
     }
@@ -143,15 +176,15 @@ window.PORTFOLIO_CONTENT = {
       cta: "Inspect notes"
     },
     {
-      title: "THM SEC1 Reflection",
-      event: "TryHackMe",
+      title: "Healthcare AI Threat Model",
+      event: "Architecture notes",
       date: "2026-05-12",
-      status: "Passed",
+      status: "Backlog",
       summary:
-        "A short reflection slot for what the SEC1 path reinforced and how it feeds the OSCP and AI red teaming roadmap.",
-      tags: ["SEC1", "Security fundamentals", "Learning path"],
+        "A planned write-up exploring clinical AI failure modes, governance controls, attack surfaces, and operational mitigations.",
+      tags: ["Healthcare AI", "Threat modeling", "Governance"],
       href: "#contact",
-      cta: "Open reflection"
+      cta: "Open notes"
     }
   ],
 
