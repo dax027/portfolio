@@ -2,11 +2,11 @@ window.PORTFOLIO_CONTENT = {
   profile: {
     name: "Dax Dickenson",
     handle: "dax@portfolio",
-    kicker: "Cyber portfolio",
+    kicker: "AI Architecture / Security Research",
     role: "Sr AI Systems Architect / healthcare AI leader / aspiring AI red teamer",
     location: "Orlando, Florida",
     summary:
-      "AI systems architect with a healthcare data science background, now building toward offensive security, AI risk, and red teaming at the intersection of models, systems, and clinical impact.",
+      "AI systems architect with healthcare data science and clinical operations roots, now building toward offensive security, AI risk, and red teaming at the intersection of models, systems, and patient impact.",
     contactCopy:
       "I am especially interested in AI red teaming, adversarial testing, AI governance, MLOps risk, healthcare security, and architecture work that turns complex systems into safer operational reality.",
     footer: "AI architecture, security research, and field notes.",
@@ -21,7 +21,7 @@ window.PORTFOLIO_CONTENT = {
     { label: "Current role", value: "Sr AI Systems Architect" },
     { label: "Security path", value: "OSCP in progress" },
     { label: "Target lane", value: "AI red teaming" },
-    { label: "Domain", value: "Healthcare AI" }
+    { label: "Clinical foundation", value: "Critical care paramedic" }
   ],
 
   activity: [
@@ -29,7 +29,7 @@ window.PORTFOLIO_CONTENT = {
     "certification track active: OSCP in progress",
     "research target calibrated: AI red teaming",
     "watching /writeups for CTF and lab artifacts",
-    "domain context loaded: healthcare AI, governance, MLOps"
+    "domain context loaded: healthcare AI, clinical operations, MLOps"
   ],
 
   experience: [
@@ -39,7 +39,7 @@ window.PORTFOLIO_CONTENT = {
       period: "May 2026 - Present",
       location: "Orlando, Florida",
       bullets: [
-        "Architecting AI systems with a focus on scalable deployment, governance, clinical alignment, and operational reliability.",
+        "Architecting AI systems with a focus on scalable deployment, governance, clinical alignment, and operational reliability grounded in firsthand clinical operations experience.",
         "Bringing executive-level analytics leadership into hands-on system design, risk translation, and implementation strategy.",
         "Expanding toward AI security and red teaming by studying offensive methodology, model behavior, tool abuse, and adversarial testing patterns."
       ],
@@ -109,8 +109,8 @@ window.PORTFOLIO_CONTENT = {
       items: ["Prompt injection", "Agent tool abuse", "Adversarial testing", "Evaluation design", "Model behavior"]
     },
     {
-      group: "Data Systems",
-      items: ["Data science", "Data engineering", "BI platforms", "SQL Server", "Enterprise analytics"]
+      group: "Clinical Systems",
+      items: ["Healthcare operations", "Critical care transport", "Clinical analytics", "Patient impact", "Enterprise analytics"]
     },
     {
       group: "Offense Lab",
