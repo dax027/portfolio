@@ -51,7 +51,7 @@ body {
 }
 
 
-body.theme-red {
+body.theme-lord {
   --bg: #070304;
   --bg-2: #170607;
   --panel: rgba(24, 5, 7, 0.8);
@@ -79,38 +79,172 @@ body.theme-red {
   --canvas-wash: rgba(7, 3, 4, 0.55);
 }
 
-body.theme-red .topbar {
+body.theme-lord .topbar {
   background: rgba(7, 3, 4, 0.78);
   border-bottom-color: rgba(255, 42, 42, 0.2);
 }
 
-body.theme-red .terminal-panel,
-body.theme-red .signal-card,
-body.theme-red .experience-card,
-body.theme-red .skill-card,
-body.theme-red .project-card,
-body.theme-red .writeup-card {
+body.theme-lord .terminal-panel,
+body.theme-lord .signal-card,
+body.theme-lord .experience-card,
+body.theme-lord .skill-card,
+body.theme-lord .project-card,
+body.theme-lord .writeup-card {
   background: linear-gradient(180deg, rgba(31, 5, 7, 0.86), rgba(8, 2, 3, 0.82));
 }
 
-body.theme-red .terminal-panel {
+body.theme-lord .terminal-panel {
   box-shadow: 0 0 38px rgba(255, 0, 40, 0.18), inset 0 0 70px rgba(255, 42, 42, 0.06);
 }
 
-body.theme-red .command-bar {
+body.theme-lord .command-bar {
   background: rgba(12, 2, 3, 0.86);
 }
 
-body.theme-red .skill-card li,
-body.theme-red .tag-list li {
+body.theme-lord .skill-card li,
+body.theme-lord .tag-list li {
   border-color: rgba(255, 75, 75, 0.32);
   background: rgba(255, 42, 42, 0.09);
   color: #ffd0c8;
 }
 
-body.theme-red .status-pill {
+body.theme-lord .status-pill {
   border-color: rgba(255, 176, 0, 0.42);
   background: rgba(255, 176, 0, 0.1);
+}
+
+body.theme-lord::before,
+body.theme-monarch::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+body.theme-lord::before {
+  background:
+    linear-gradient(135deg, transparent 0 47%, rgba(255, 42, 42, 0.1) 47% 48%, transparent 48%),
+    linear-gradient(45deg, transparent 0 54%, rgba(255, 176, 0, 0.07) 54% 55%, transparent 55%);
+  background-size: 220px 220px, 260px 260px;
+  opacity: 0.55;
+}
+
+body.theme-lord .brand-core,
+body.theme-lord .terminal-panel,
+body.theme-lord .signal-card,
+body.theme-lord .experience-card,
+body.theme-lord .skill-card,
+body.theme-lord .project-card,
+body.theme-lord .writeup-card,
+body.theme-lord .command-bar,
+body.theme-lord .ghost-control,
+body.theme-lord .nav-links a,
+body.theme-lord .hero-actions a,
+body.theme-lord .contact-links a {
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+body.theme-lord .terminal-output::before {
+  content: "HUNTER-KILL VECTOR";
+  display: block;
+  margin-bottom: 0.9rem;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+body.theme-monarch {
+  --bg: #050611;
+  --bg-2: #0b1028;
+  --panel: rgba(9, 13, 35, 0.82);
+  --panel-strong: rgba(14, 19, 48, 0.95);
+  --text: #f2f5ff;
+  --muted: #9ba8d8;
+  --cyan: #77d7ff;
+  --green: #b38cff;
+  --pink: #7d5cff;
+  --amber: #d7f2ff;
+  --blue: #3d7cff;
+  --line: rgba(119, 215, 255, 0.3);
+  --line-strong: rgba(179, 140, 255, 0.62);
+  --shadow: 0 0 42px rgba(125, 92, 255, 0.2);
+  --page-background:
+    linear-gradient(90deg, rgba(119, 215, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(179, 140, 255, 0.038) 1px, transparent 1px),
+    linear-gradient(145deg, #03040c 0%, #090e28 42%, #03040c 100%);
+  --scanline-background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.026) 50%, rgba(0, 0, 0, 0.08) 50%),
+    linear-gradient(90deg, rgba(119, 215, 255, 0.055), rgba(125, 92, 255, 0.075), rgba(215, 242, 255, 0.025));
+  --control-bg: rgba(8, 11, 29, 0.84);
+  --control-border: rgba(179, 140, 255, 0.45);
+  --grid-glow: rgba(119, 215, 255, 0.18);
+  --canvas-wash: rgba(5, 6, 17, 0.58);
+}
+
+body.theme-monarch::before {
+  background:
+    linear-gradient(135deg, transparent 0 35%, rgba(119, 215, 255, 0.07) 35% 36%, transparent 36% 64%, rgba(179, 140, 255, 0.075) 64% 65%, transparent 65%),
+    repeating-linear-gradient(90deg, transparent 0 68px, rgba(119, 215, 255, 0.035) 68px 69px, transparent 69px 136px);
+  background-size: 180px 180px, 272px 100%;
+  opacity: 0.78;
+}
+
+body.theme-monarch .topbar {
+  background: rgba(3, 4, 12, 0.8);
+  border-bottom-color: rgba(179, 140, 255, 0.28);
+}
+
+body.theme-monarch .terminal-panel,
+body.theme-monarch .signal-card,
+body.theme-monarch .experience-card,
+body.theme-monarch .skill-card,
+body.theme-monarch .project-card,
+body.theme-monarch .writeup-card,
+body.theme-monarch .command-bar {
+  border-image: linear-gradient(135deg, rgba(119, 215, 255, 0.9), rgba(125, 92, 255, 0.75), rgba(215, 242, 255, 0.65)) 1;
+  background:
+    linear-gradient(180deg, rgba(12, 17, 45, 0.88), rgba(4, 6, 18, 0.84)),
+    linear-gradient(135deg, rgba(119, 215, 255, 0.08), transparent 38%, rgba(125, 92, 255, 0.08));
+  box-shadow: var(--shadow), inset 0 0 42px rgba(119, 215, 255, 0.055);
+}
+
+body.theme-monarch .terminal-panel::after,
+body.theme-monarch .signal-card::after,
+body.theme-monarch .experience-card::after,
+body.theme-monarch .skill-card::after,
+body.theme-monarch .project-card::after,
+body.theme-monarch .writeup-card::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  border: 1px solid rgba(215, 242, 255, 0.12);
+  clip-path: polygon(0 0, 34px 0, 34px 1px, 1px 1px, 1px 34px, 0 34px, 0 0, 100% 0, 100% 34px, calc(100% - 1px) 34px, calc(100% - 1px) 1px, calc(100% - 34px) 1px, calc(100% - 34px) 0, 100% 0, 100% 100%, calc(100% - 34px) 100%, calc(100% - 34px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 34px), 100% calc(100% - 34px), 100% 100%, 0 100%, 0 calc(100% - 34px), 1px calc(100% - 34px), 1px calc(100% - 1px), 34px calc(100% - 1px), 34px 100%, 0 100%);
+}
+
+body.theme-monarch .terminal-output::before {
+  content: "SYSTEM WINDOW // STATUS: AWAKENED";
+  display: block;
+  margin-bottom: 0.9rem;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+body.theme-monarch .glitch {
+  text-shadow: 0 0 18px rgba(119, 215, 255, 0.36), 0 0 36px rgba(125, 92, 255, 0.22);
+}
+
+body.theme-monarch .status-pill,
+body.theme-monarch .skill-card li,
+body.theme-monarch .tag-list li {
+  border-color: rgba(179, 140, 255, 0.42);
+  background: rgba(125, 92, 255, 0.12);
+  color: #e3ddff;
 }
 body.motion-paused *,
 body.motion-paused *::before,

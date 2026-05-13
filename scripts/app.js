@@ -1,6 +1,12 @@
 (function () {
   const content = window.PORTFOLIO_CONTENT || null;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const themes = ["terminal", "lord", "monarch"];
+  const themeLabels = {
+    terminal: "Terminal",
+    lord: "Lord",
+    monarch: "Monarch"
+  };
   const state = {
     motionPaused: prefersReducedMotion.matches,
     theme: readPreferredTheme(),
@@ -14,7 +20,9 @@
 
   function readPreferredTheme() {
     try {
-      return window.localStorage.getItem("portfolio-theme") === "red" ? "red" : "terminal";
+      const stored = window.localStorage.getItem("portfolio-theme");
+      if (stored === "red") return "lord";
+      return themes.includes(stored) ? stored : "terminal";
     } catch (_error) {
       return "terminal";
     }
@@ -37,7 +45,8 @@
   }
 
   function applyTheme({ persist = false, refreshCanvas = false } = {}) {
-    document.body.classList.toggle("theme-red", state.theme === "red");
+    document.body.classList.toggle("theme-lord", state.theme === "lord");
+    document.body.classList.toggle("theme-monarch", state.theme === "monarch");
     if (persist) writePreferredTheme();
     if (refreshCanvas && !state.motionPaused) {
       stopCanvas();
@@ -245,14 +254,18 @@
     const button = $("#theme-toggle");
     if (!button) return;
 
+    const nextTheme = () => themes[(themes.indexOf(state.theme) + 1) % themes.length];
+
     const sync = () => {
-      const isRed = state.theme === "red";
-      button.setAttribute("aria-pressed", String(isRed));
-      button.textContent = isRed ? "Terminal mode" : "Sith mode";
+      const next = nextTheme();
+      button.setAttribute("aria-pressed", String(state.theme !== "terminal"));
+      button.setAttribute("aria-label", `Switch to ${themeLabels[next]} mode`);
+      button.title = `Current mode: ${themeLabels[state.theme]}`;
+      button.textContent = `${themeLabels[next]} mode`;
     };
 
     button.addEventListener("click", () => {
-      state.theme = state.theme === "red" ? "terminal" : "red";
+      state.theme = nextTheme();
       applyTheme({ persist: true, refreshCanvas: true });
       sync();
     });
@@ -309,7 +322,12 @@
     const canvas = $("#signal-canvas");
     if (!canvas) return;
     const context = canvas.getContext("2d");
-    const glyphs = state.theme === "red" ? "01T800HK{}[]/<>#$" : "01ABCDEF{}[]/<>#$";
+    const glyphsByTheme = {
+      terminal: "01ABCDEF{}[]/<>#$",
+      lord: "01LORDHK{}[]/<>#$",
+      monarch: "01RANKGATEKEY[]<>/*"
+    };
+    const glyphs = glyphsByTheme[state.theme] || glyphsByTheme.terminal;
     const palette = canvasPalette();
     const packets = Array.from({ length: 82 }, () => makePacket(false, window.innerWidth, window.innerHeight, palette));
     let width = 0;
