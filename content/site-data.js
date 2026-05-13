@@ -1,7 +1,7 @@
 window.PORTFOLIO_CONTENT = {
   profile: {
     name: "Dax Dickenson",
-    handle: "dax@portfolio",
+    handle: "guest@dax-lab",
     kicker: "AI Architecture / Security Research",
     role: "Sr AI Systems Architect / healthcare AI leader / AI security practitioner",
     location: "Orlando, Florida",
