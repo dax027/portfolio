@@ -329,7 +329,8 @@
     };
     const glyphs = glyphsByTheme[state.theme] || glyphsByTheme.terminal;
     const palette = canvasPalette();
-    const packets = Array.from({ length: 82 }, () => makePacket(false, window.innerWidth, window.innerHeight, palette));
+    const packetCount = state.theme === "monarch" ? 58 : 82;
+    const packets = Array.from({ length: packetCount }, () => makePacket(false, window.innerWidth, window.innerHeight, palette));
     let width = 0;
     let height = 0;
     let dpr = 1;
@@ -357,12 +358,26 @@
         if (packet.x > width + 80 || packet.y > height + 80 || packet.y < -80) Object.assign(packet, makePacket(true, width, height, palette));
 
         context.globalAlpha = packet.alpha;
-        context.fillStyle = packet.color;
-        context.font = `${packet.size}px Cascadia Code, Consolas, monospace`;
-        context.fillText(glyphs[packet.glyph], packet.x, packet.y);
-
-        context.globalAlpha = packet.alpha * 0.38;
-        context.fillRect(packet.x - 42, packet.y + 7, 34, 1);
+        if (state.theme === "monarch") {
+          context.strokeStyle = packet.color;
+          context.lineWidth = packet.weight;
+          context.shadowColor = packet.color;
+          context.shadowBlur = 14;
+          context.beginPath();
+          context.moveTo(packet.x, packet.y);
+          context.lineTo(packet.x + packet.length, packet.y - packet.length * 0.42);
+          context.stroke();
+          context.shadowBlur = 0;
+          context.globalAlpha = packet.alpha * 0.45;
+          context.fillStyle = packet.color;
+          context.fillRect(packet.x + packet.length + 6, packet.y - packet.length * 0.42, 18, 2);
+        } else {
+          context.fillStyle = packet.color;
+          context.font = `${packet.size}px Cascadia Code, Consolas, monospace`;
+          context.fillText(glyphs[packet.glyph], packet.x, packet.y);
+          context.globalAlpha = packet.alpha * 0.38;
+          context.fillRect(packet.x - 42, packet.y + 7, 34, 1);
+        }
       });
 
       context.globalAlpha = 1;
@@ -411,7 +426,9 @@
       size: 10 + Math.random() * 11,
       glyph: Math.floor(Math.random() * 16),
       color: colors[Math.floor(Math.random() * colors.length)],
-      alpha: 0.18 + Math.random() * 0.52
+      alpha: 0.18 + Math.random() * 0.52,
+      length: 52 + Math.random() * 120,
+      weight: 1 + Math.random() * 1.4
     };
   }
 
