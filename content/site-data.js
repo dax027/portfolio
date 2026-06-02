@@ -122,7 +122,7 @@ window.PORTFOLIO_CONTENT = {
     },
     {
       group: "Education",
-      items: ["M.S. Data Science", "B.S. Information Systems Technology", "TryHackMe SEC1", "PenTest+ study", "Epic Cogito"]
+      items: ["M.S. Data Science", "B.S. Information Systems Technology", "TryHackMe SEC1", "OSAI study", "Epic Cogito"]
     }
   ],
 
