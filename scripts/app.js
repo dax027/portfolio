@@ -360,12 +360,26 @@
         packet.x += packet.vx;
         packet.y += packet.vy;
 
-        if (state.theme === "monarch") {
-          packet.angle = (packet.angle || 0) + 0.005;
-        }
-
         let outOfBounds = false;
-        if (state.theme === "lord" || state.theme === "monarch") {
+
+        if (state.theme === "monarch" && packet.type === "beam") {
+          // Bounce off left/right edges
+          if (packet.x < -10) {
+            packet.x = -10;
+            packet.vx = -packet.vx;
+          } else if (packet.x > width + 10) {
+            packet.x = width + 10;
+            packet.vx = -packet.vx;
+          }
+          // Bounce off top/bottom edges
+          if (packet.y < -10) {
+            packet.y = -10;
+            packet.vy = -packet.vy;
+          } else if (packet.y > height + 10) {
+            packet.y = height + 10;
+            packet.vy = -packet.vy;
+          }
+        } else if (state.theme === "lord" || (state.theme === "monarch" && packet.type === "spark")) {
           if (packet.y < -30 || packet.x < -30 || packet.x > width + 30) {
             outOfBounds = true;
           }
@@ -403,34 +417,47 @@
           context.fill();
           context.shadowBlur = 0;
         } else if (state.theme === "monarch") {
-          // Render crackling, jagged neon electrical discharge arcs
-          context.beginPath();
-          context.strokeStyle = packet.color;
-          context.lineWidth = 1.2 + Math.random() * 0.8;
-          context.shadowColor = packet.color;
-          context.shadowBlur = 14;
-          context.lineCap = "round";
-          context.lineJoin = "round";
-          
-          context.moveTo(packet.x, packet.y);
-          
-          let cx = packet.x;
-          let cy = packet.y;
-          const segmentCount = 3 + Math.floor(Math.random() * 2);
-          for (let i = 0; i < segmentCount; i++) {
-            cx += -8 + Math.random() * 16;
-            cy += -packet.size * 0.85 + Math.random() * 4;
-            context.lineTo(cx, cy);
-          }
-          context.stroke();
-          
-          if (Math.random() > 0.45) {
+          if (packet.type === "beam") {
+            // Render bouncing linear energy arc
             context.beginPath();
-            context.arc(packet.x, packet.y, 1.8, 0, Math.PI * 2);
-            context.fillStyle = "#ffffff";
+            context.strokeStyle = packet.color;
+            context.lineWidth = packet.weight * 2.6;
+            context.shadowColor = packet.color;
+            context.shadowBlur = 15;
+            context.lineCap = "round";
+            context.moveTo(packet.x, packet.y);
+            context.lineTo(packet.x - packet.vx * 6.5, packet.y - packet.vy * 6.5);
+            context.stroke();
+            
+            // Core hot-white beam
+            context.beginPath();
+            context.strokeStyle = "#ffffff";
+            context.lineWidth = packet.weight * 0.85;
+            context.moveTo(packet.x, packet.y);
+            context.lineTo(packet.x - packet.vx * 6.5, packet.y - packet.vy * 6.5);
+            context.stroke();
+            context.shadowBlur = 0;
+          } else {
+            // Render occasional floating spark (rotating diamond)
+            context.save();
+            context.translate(packet.x, packet.y);
+            packet.angle = (packet.angle || 0) + 0.008;
+            context.rotate(packet.angle);
+            context.beginPath();
+            const w = packet.size * 0.7;
+            const h = packet.size * 1.3;
+            context.moveTo(0, -h/2);
+            context.lineTo(w/2, 0);
+            context.lineTo(0, h/2);
+            context.lineTo(-w/2, 0);
+            context.closePath();
+            context.fillStyle = packet.color;
+            context.shadowColor = packet.color;
+            context.shadowBlur = 8;
             context.fill();
+            context.restore();
+            context.shadowBlur = 0;
           }
-          context.shadowBlur = 0;
         } else {
           context.fillStyle = packet.color;
           context.font = `${packet.size}px Cascadia Code, Consolas, monospace`;
@@ -492,17 +519,36 @@
         weight: 1
       };
     } else if (theme === "monarch") {
-      return {
-        x: Math.random() * width,
-        y: fromEdge ? height + 30 + Math.random() * 50 : Math.random() * height,
-        vx: -0.15 + Math.random() * 0.3,
-        vy: -1.2 - Math.random() * 1.8,
-        size: 6 + Math.random() * 12,
-        color: ["#52cfff", "#aa77ff", "#6f4eff", "#2d6eff"][Math.floor(Math.random() * 4)],
-        alpha: 0.3 + Math.random() * 0.55,
-        angle: Math.random() * Math.PI,
-        weight: 1
-      };
+      const isBeam = Math.random() < 0.18;
+      if (isBeam) {
+        // Bouncing linear energy beam
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 2.0 + Math.random() * 2.0;
+        return {
+          type: "beam",
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          size: 20 + Math.random() * 15,
+          color: ["#52cfff", "#aa77ff", "#6f4eff", "#2d6eff"][Math.floor(Math.random() * 4)],
+          alpha: 0.45 + Math.random() * 0.45,
+          weight: 1.2 + Math.random() * 1.5
+        };
+      } else {
+        // Occasional floating spark (rotating diamond)
+        return {
+          type: "spark",
+          x: Math.random() * width,
+          y: fromEdge ? height + 20 + Math.random() * 40 : Math.random() * height,
+          vx: -0.12 + Math.random() * 0.24,
+          vy: -0.4 - Math.random() * 0.6,
+          size: 5 + Math.random() * 6,
+          color: ["#52cfff", "#aa77ff", "#6f4eff", "#2d6eff"][Math.floor(Math.random() * 4)],
+          alpha: 0.22 + Math.random() * 0.4,
+          angle: Math.random() * Math.PI
+        };
+      }
     } else {
       return {
         x: fromEdge ? -80 - Math.random() * 50 : Math.random() * width,
