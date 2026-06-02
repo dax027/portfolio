@@ -54,10 +54,10 @@ body {
 
 
 body.theme-lord {
-  --bg: #070304;
-  --bg-2: #170607;
-  --panel: rgba(18, 4, 6, 0.88);
-  --panel-strong: rgba(28, 5, 8, 0.96);
+  --bg: #030102;
+  --bg-2: #0d0203;
+  --panel: rgba(13, 2, 3, 0.88);
+  --panel-strong: rgba(22, 3, 4, 0.95);
   --text: #fff2eb;
   --muted: #cca196;
   --cyan: #ff1e1e;
@@ -69,18 +69,21 @@ body.theme-lord {
   --line-strong: rgba(255, 30, 30, 0.7);
   --shadow: 0 0 38px rgba(255, 0, 68, 0.22);
   --page-background:
-    linear-gradient(90deg, rgba(255, 30, 30, 0.06) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255, 170, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(145deg, #070304 0%, #1c0608 44%, #040102 100%);
+    radial-gradient(circle, transparent 40%, rgba(255, 30, 30, 0.035) 40%, rgba(255, 30, 30, 0.035) 40.5%, transparent 40.5%),
+    radial-gradient(circle, transparent 70%, rgba(255, 30, 30, 0.02) 70%, rgba(255, 30, 30, 0.02) 70.5%, transparent 70.5%),
+    linear-gradient(90deg, rgba(255, 30, 30, 0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 30, 30, 0.04) 1px, transparent 1px),
+    linear-gradient(145deg, #030102 0%, #120203 44%, #010000 100%);
   --scanline-background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.03) 50%, rgba(0, 0, 0, 0.14) 50%),
     linear-gradient(90deg, rgba(255, 0, 68, 0.09), rgba(255, 30, 30, 0.06), rgba(255, 170, 0, 0.04));
-  --control-bg: rgba(24, 4, 6, 0.85);
+  --control-bg: rgba(18, 2, 3, 0.85);
   --control-border: rgba(255, 30, 30, 0.45);
   --grid-glow: rgba(255, 0, 68, 0.24);
-  --canvas-wash: rgba(7, 3, 4, 0.58);
-  --font-ui: "Cinzel", "Georgia", serif;
-  --font-mono: "Cinzel", "Georgia", serif;
+  --canvas-wash: rgba(3, 1, 2, 0.58);
+  --font-ui: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-mono: "Space Grotesk", "Cascadia Code", monospace;
+  background-size: 500px 500px, 1000px 1000px, 82px 82px, 82px 82px, auto !important;
 }
 
 body.theme-lord h1,
@@ -89,12 +92,17 @@ body.theme-lord h3,
 body.theme-lord h4,
 body.theme-lord .brand-mark,
 body.theme-lord .eyebrow,
-body.theme-lord .subhead,
-body.theme-lord .prompt {
+body.theme-lord .subhead {
   font-family: "Cinzel Decorative", "Cinzel", serif;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+body.theme-lord h1 {
+  font-size: 3.4rem !important;
+  max-width: 15ch !important;
+  text-shadow: 0 0 20px rgba(255, 30, 30, 0.4);
 }
 
 body.theme-lord .topbar {
@@ -111,6 +119,20 @@ body.theme-lord .writeup-card {
   background: linear-gradient(180deg, rgba(26, 4, 6, 0.9), rgba(8, 2, 3, 0.95));
   border: 1px solid rgba(255, 30, 30, 0.42);
   box-shadow: 0 0 25px rgba(255, 0, 68, 0.16), inset 0 0 30px rgba(255, 30, 30, 0.06);
+}
+
+body.theme-lord .terminal-panel::after,
+body.theme-lord .signal-card::after,
+body.theme-lord .experience-card::after,
+body.theme-lord .skill-card::after,
+body.theme-lord .project-card::after,
+body.theme-lord .writeup-card::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  pointer-events: none;
+  border: 1px solid rgba(255, 30, 30, 0.38);
+  clip-path: polygon(0 0, 18px 0, 18px 1px, 1px 1px, 1px 18px, 0 18px, 0 0, 100% 0, 100% 18px, calc(100% - 1px) 18px, calc(100% - 1px) 1px, calc(100% - 18px) 1px, calc(100% - 18px) 0, 100% 0, 100% 100%, calc(100% - 18px) 100%, calc(100% - 18px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 18px), 100% calc(100% - 18px), 100% 100%, 0 100%, 0 calc(100% - 18px), 1px calc(100% - 18px), 1px calc(100% - 1px), 18px calc(100% - 1px), 18px 100%, 0 100%);
 }
 
 body.theme-lord .terminal-panel {
@@ -133,6 +155,12 @@ body.theme-lord .status-pill {
   border-color: rgba(255, 170, 0, 0.5);
   background: rgba(255, 170, 0, 0.15);
   color: var(--amber);
+}
+
+body.theme-lord .status-pill::before {
+  content: "[ LOCK ] ";
+  font-size: 0.65rem;
+  font-weight: 800;
 }
 
 body.theme-lord::before,
