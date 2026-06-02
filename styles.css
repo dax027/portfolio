@@ -252,6 +252,12 @@ body.theme-monarch .prompt {
   text-transform: uppercase;
 }
 
+body.theme-monarch h1 {
+  font-size: 3.4rem !important;
+  max-width: 15ch !important;
+  text-shadow: 0 0 20px rgba(82, 207, 255, 0.4);
+}
+
 body.theme-monarch::before {
   background:
     linear-gradient(180deg, rgba(82, 207, 255, 0.15) 0 2px, transparent 2px 100%),
