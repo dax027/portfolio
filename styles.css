@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@500;800&family=Space+Grotesk:wght@400;700&family=Share+Tech+Mono&family=Oxanium:wght@500;700;800&family=Inter:wght@400;600;800&display=swap');
+
 :root {
   color-scheme: dark;
   --bg: #050609;
@@ -25,8 +27,8 @@
   --control-border: rgba(98, 255, 226, 0.28);
   --grid-glow: rgba(98, 255, 226, 0.16);
   --canvas-wash: rgba(5, 6, 9, 0.52);
-  --font-ui: "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-ui: "Share Tech Mono", "Cascadia Code", "SFMono-Regular", monospace;
+  --font-mono: "Share Tech Mono", "Cascadia Code", "SFMono-Regular", monospace;
 }
 
 * {
@@ -54,34 +56,50 @@ body {
 body.theme-lord {
   --bg: #070304;
   --bg-2: #170607;
-  --panel: rgba(24, 5, 7, 0.8);
-  --panel-strong: rgba(38, 6, 8, 0.95);
-  --text: #fff0e8;
-  --muted: #c79284;
-  --cyan: #ff2a2a;
-  --green: #ffb000;
-  --pink: #ff003c;
-  --amber: #ff6b00;
-  --blue: #ff4b4b;
-  --line: rgba(255, 42, 42, 0.28);
-  --line-strong: rgba(255, 42, 42, 0.58);
-  --shadow: 0 0 36px rgba(255, 0, 40, 0.16);
+  --panel: rgba(18, 4, 6, 0.88);
+  --panel-strong: rgba(28, 5, 8, 0.96);
+  --text: #fff2eb;
+  --muted: #cca196;
+  --cyan: #ff1e1e;
+  --green: #ffaa00;
+  --pink: #ff0044;
+  --amber: #ff6200;
+  --blue: #ff3c3c;
+  --line: rgba(255, 30, 30, 0.35);
+  --line-strong: rgba(255, 30, 30, 0.7);
+  --shadow: 0 0 38px rgba(255, 0, 68, 0.22);
   --page-background:
-    linear-gradient(90deg, rgba(255, 42, 42, 0.055) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(255, 176, 0, 0.032) 1px, transparent 1px),
-    linear-gradient(145deg, #070304 0%, #160608 44%, #050102 100%);
+    linear-gradient(90deg, rgba(255, 30, 30, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 170, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(145deg, #070304 0%, #1c0608 44%, #040102 100%);
   --scanline-background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.028) 50%, rgba(0, 0, 0, 0.11) 50%),
-    linear-gradient(90deg, rgba(255, 0, 60, 0.08), rgba(255, 42, 42, 0.055), rgba(255, 176, 0, 0.035));
-  --control-bg: rgba(20, 4, 6, 0.82);
-  --control-border: rgba(255, 42, 42, 0.38);
-  --grid-glow: rgba(255, 0, 40, 0.2);
-  --canvas-wash: rgba(7, 3, 4, 0.55);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03) 50%, rgba(0, 0, 0, 0.14) 50%),
+    linear-gradient(90deg, rgba(255, 0, 68, 0.09), rgba(255, 30, 30, 0.06), rgba(255, 170, 0, 0.04));
+  --control-bg: rgba(24, 4, 6, 0.85);
+  --control-border: rgba(255, 30, 30, 0.45);
+  --grid-glow: rgba(255, 0, 68, 0.24);
+  --canvas-wash: rgba(7, 3, 4, 0.58);
+  --font-ui: "Cinzel", "Georgia", serif;
+  --font-mono: "Cinzel", "Georgia", serif;
+}
+
+body.theme-lord h1,
+body.theme-lord h2,
+body.theme-lord h3,
+body.theme-lord h4,
+body.theme-lord .brand-mark,
+body.theme-lord .eyebrow,
+body.theme-lord .subhead,
+body.theme-lord .prompt {
+  font-family: "Cinzel Decorative", "Cinzel", serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 body.theme-lord .topbar {
-  background: rgba(7, 3, 4, 0.78);
-  border-bottom-color: rgba(255, 42, 42, 0.2);
+  background: rgba(7, 3, 4, 0.82);
+  border-bottom-color: rgba(255, 30, 30, 0.35);
 }
 
 body.theme-lord .terminal-panel,
@@ -90,27 +108,31 @@ body.theme-lord .experience-card,
 body.theme-lord .skill-card,
 body.theme-lord .project-card,
 body.theme-lord .writeup-card {
-  background: linear-gradient(180deg, rgba(31, 5, 7, 0.86), rgba(8, 2, 3, 0.82));
+  background: linear-gradient(180deg, rgba(26, 4, 6, 0.9), rgba(8, 2, 3, 0.95));
+  border: 1px solid rgba(255, 30, 30, 0.42);
+  box-shadow: 0 0 25px rgba(255, 0, 68, 0.16), inset 0 0 30px rgba(255, 30, 30, 0.06);
 }
 
 body.theme-lord .terminal-panel {
-  box-shadow: 0 0 38px rgba(255, 0, 40, 0.18), inset 0 0 70px rgba(255, 42, 42, 0.06);
+  box-shadow: 0 0 45px rgba(255, 0, 68, 0.26), inset 0 0 80px rgba(255, 30, 30, 0.08);
 }
 
 body.theme-lord .command-bar {
-  background: rgba(12, 2, 3, 0.86);
+  background: rgba(14, 2, 3, 0.9);
+  border-color: rgba(255, 30, 30, 0.5);
 }
 
 body.theme-lord .skill-card li,
 body.theme-lord .tag-list li {
-  border-color: rgba(255, 75, 75, 0.32);
-  background: rgba(255, 42, 42, 0.09);
-  color: #ffd0c8;
+  border-color: rgba(255, 60, 60, 0.45);
+  background: rgba(255, 30, 30, 0.12);
+  color: #ffd8d2;
 }
 
 body.theme-lord .status-pill {
-  border-color: rgba(255, 176, 0, 0.42);
-  background: rgba(255, 176, 0, 0.1);
+  border-color: rgba(255, 170, 0, 0.5);
+  background: rgba(255, 170, 0, 0.15);
+  color: var(--amber);
 }
 
 body.theme-lord::before,
@@ -124,10 +146,10 @@ body.theme-monarch::before {
 
 body.theme-lord::before {
   background:
-    linear-gradient(135deg, transparent 0 47%, rgba(255, 42, 42, 0.1) 47% 48%, transparent 48%),
-    linear-gradient(45deg, transparent 0 54%, rgba(255, 176, 0, 0.07) 54% 55%, transparent 55%);
+    linear-gradient(135deg, transparent 0 47%, rgba(255, 30, 30, 0.12) 47% 48%, transparent 48%),
+    linear-gradient(45deg, transparent 0 54%, rgba(255, 170, 0, 0.09) 54% 55%, transparent 55%);
   background-size: 220px 220px, 260px 260px;
-  opacity: 0.55;
+  opacity: 0.65;
 }
 
 body.theme-lord .brand-core,
@@ -143,63 +165,81 @@ body.theme-lord .nav-links a,
 body.theme-lord .hero-actions a,
 body.theme-lord .contact-links a {
   border-radius: 0;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
 }
 
 body.theme-lord .terminal-output::before {
-  content: "HUNTER-KILL VECTOR";
+  content: "HUNTER-KILL VECTOR ACTIVE // THREAT DETECTED";
   display: block;
   margin-bottom: 0.9rem;
   color: var(--amber);
   font-family: var(--font-mono);
   font-size: 0.76rem;
   font-weight: 800;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 8px rgba(255, 98, 0, 0.5);
 }
 
 body.theme-monarch {
-  --bg: #050611;
-  --bg-2: #0b1028;
-  --panel: rgba(9, 13, 35, 0.82);
-  --panel-strong: rgba(14, 19, 48, 0.95);
-  --text: #f2f5ff;
-  --muted: #9ba8d8;
-  --cyan: #77d7ff;
-  --green: #b38cff;
-  --pink: #7d5cff;
-  --amber: #d7f2ff;
-  --blue: #3d7cff;
-  --line: rgba(119, 215, 255, 0.3);
-  --line-strong: rgba(179, 140, 255, 0.62);
-  --shadow: 0 0 42px rgba(125, 92, 255, 0.2);
+  --bg: #03040c;
+  --bg-2: #070a22;
+  --panel: rgba(10, 15, 42, 0.85);
+  --panel-strong: rgba(15, 20, 56, 0.96);
+  --text: #f0f4ff;
+  --muted: #96a5d6;
+  --cyan: #52cfff;
+  --green: #aa77ff;
+  --pink: #6f4eff;
+  --amber: #cbeeff;
+  --blue: #2d6eff;
+  --line: rgba(82, 207, 255, 0.35);
+  --line-strong: rgba(170, 119, 255, 0.7);
+  --shadow: 0 0 45px rgba(111, 78, 255, 0.25);
   --page-background:
-    linear-gradient(90deg, rgba(119, 215, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(179, 140, 255, 0.038) 1px, transparent 1px),
-    linear-gradient(145deg, #03040c 0%, #090e28 42%, #03040c 100%);
+    linear-gradient(90deg, rgba(82, 207, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(170, 119, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(145deg, #03040c 0%, #070d2b 42%, #03040c 100%);
   --scanline-background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.026) 50%, rgba(0, 0, 0, 0.08) 50%),
-    linear-gradient(90deg, rgba(119, 215, 255, 0.055), rgba(125, 92, 255, 0.075), rgba(215, 242, 255, 0.025));
-  --control-bg: rgba(8, 11, 29, 0.84);
-  --control-border: rgba(179, 140, 255, 0.45);
-  --grid-glow: rgba(119, 215, 255, 0.18);
-  --canvas-wash: rgba(5, 6, 17, 0.58);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025) 50%, rgba(0, 0, 0, 0.1) 50%),
+    linear-gradient(90deg, rgba(82, 207, 255, 0.06), rgba(111, 78, 255, 0.08), rgba(203, 238, 238, 0.025));
+  --control-bg: rgba(6, 10, 32, 0.86);
+  --control-border: rgba(170, 119, 255, 0.5);
+  --grid-glow: rgba(82, 207, 255, 0.2);
+  --canvas-wash: rgba(3, 4, 12, 0.6);
+  --font-ui: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-mono: "Oxanium", "Space Grotesk", sans-serif;
+}
+
+body.theme-monarch h1,
+body.theme-monarch h2,
+body.theme-monarch h3,
+body.theme-monarch h4,
+body.theme-monarch .brand-mark,
+body.theme-monarch .eyebrow,
+body.theme-monarch .subhead,
+body.theme-monarch .prompt {
+  font-family: "Oxanium", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 body.theme-monarch::before {
   background:
-    linear-gradient(180deg, rgba(119, 215, 255, 0.13) 0 2px, transparent 2px 100%),
-    linear-gradient(90deg, transparent 0 22%, rgba(119, 215, 255, 0.075) 22% 22.4%, transparent 22.4% 61%, rgba(179, 140, 255, 0.055) 61% 61.25%, transparent 61.25%),
-    radial-gradient(ellipse at 50% 18%, rgba(119, 215, 255, 0.12), transparent 42%);
+    linear-gradient(180deg, rgba(82, 207, 255, 0.15) 0 2px, transparent 2px 100%),
+    linear-gradient(90deg, transparent 0 22%, rgba(82, 207, 255, 0.09) 22% 22.4%, transparent 22.4% 61%, rgba(170, 119, 255, 0.07) 61% 61.25%, transparent 61.25%),
+    radial-gradient(ellipse at 50% 18%, rgba(82, 207, 255, 0.15), transparent 42%);
   background-size: 100% 88px, 100% 100%, 100% 100%;
-  opacity: 0.88;
+  opacity: 0.9;
 }
 
 body.theme-monarch .topbar {
   background:
-    linear-gradient(90deg, rgba(119, 215, 255, 0.18), rgba(7, 13, 34, 0.86) 22%, rgba(7, 13, 34, 0.86) 78%, rgba(179, 140, 255, 0.14)),
-    rgba(3, 4, 12, 0.84);
-  border-top: 2px solid rgba(148, 235, 255, 0.86);
-  border-bottom-color: rgba(119, 215, 255, 0.46);
-  box-shadow: 0 0 32px rgba(119, 215, 255, 0.16);
+    linear-gradient(90deg, rgba(82, 207, 255, 0.2), rgba(6, 10, 32, 0.88) 22%, rgba(6, 10, 32, 0.88) 78%, rgba(170, 119, 255, 0.16)),
+    rgba(3, 4, 12, 0.86);
+  border-top: 2px solid rgba(130, 222, 255, 0.9);
+  border-bottom-color: rgba(82, 207, 255, 0.5);
+  box-shadow: 0 0 35px rgba(82, 207, 255, 0.2);
 }
 
 body.theme-monarch .terminal-panel,
@@ -209,12 +249,12 @@ body.theme-monarch .skill-card,
 body.theme-monarch .project-card,
 body.theme-monarch .writeup-card,
 body.theme-monarch .command-bar {
-  border-color: rgba(148, 235, 255, 0.64);
-  border-image: linear-gradient(180deg, rgba(148, 235, 255, 0.95), rgba(80, 120, 255, 0.55), rgba(179, 140, 255, 0.7)) 1;
+  border-color: rgba(130, 222, 255, 0.7);
+  border-image: linear-gradient(180deg, rgba(130, 222, 255, 0.95), rgba(70, 110, 255, 0.6), rgba(170, 119, 255, 0.75)) 1;
   background:
-    linear-gradient(180deg, rgba(16, 29, 65, 0.9), rgba(4, 7, 20, 0.86)),
-    linear-gradient(90deg, rgba(119, 215, 255, 0.1), transparent 24%, transparent 76%, rgba(125, 92, 255, 0.08));
-  box-shadow: 0 0 30px rgba(119, 215, 255, 0.14), inset 0 0 46px rgba(119, 215, 255, 0.06);
+    linear-gradient(180deg, rgba(14, 23, 56, 0.92), rgba(4, 6, 18, 0.9)),
+    linear-gradient(90deg, rgba(82, 207, 255, 0.12), transparent 24%, transparent 76%, rgba(170, 119, 255, 0.1));
+  box-shadow: 0 0 32px rgba(111, 78, 255, 0.16), inset 0 0 50px rgba(82, 207, 255, 0.08);
 }
 
 body.theme-monarch .terminal-panel::after,
@@ -223,15 +263,13 @@ body.theme-monarch .experience-card::after,
 body.theme-monarch .skill-card::after,
 body.theme-monarch .project-card::after,
 body.theme-monarch .writeup-card::after {
-
   content: "";
   position: absolute;
   inset: 8px;
   pointer-events: none;
-  border: 1px solid rgba(215, 242, 255, 0.12);
+  border: 1px solid rgba(203, 238, 255, 0.15);
   clip-path: polygon(0 0, 34px 0, 34px 1px, 1px 1px, 1px 34px, 0 34px, 0 0, 100% 0, 100% 34px, calc(100% - 1px) 34px, calc(100% - 1px) 1px, calc(100% - 34px) 1px, calc(100% - 34px) 0, 100% 0, 100% 100%, calc(100% - 34px) 100%, calc(100% - 34px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 34px), 100% calc(100% - 34px), 100% 100%, 0 100%, 0 calc(100% - 34px), 1px calc(100% - 34px), 1px calc(100% - 1px), 34px calc(100% - 1px), 34px 100%, 0 100%);
 }
-
 
 body.theme-monarch .terminal-panel::before,
 body.theme-monarch .signal-card::before,
@@ -241,7 +279,7 @@ body.theme-monarch .project-card::before,
 body.theme-monarch .writeup-card::before {
   inset: 0 0 auto;
   height: 8px;
-  background: linear-gradient(90deg, rgba(148, 235, 255, 0.95), rgba(80, 120, 255, 0.5), rgba(179, 140, 255, 0.7));
+  background: linear-gradient(90deg, rgba(130, 222, 255, 0.95), rgba(70, 110, 255, 0.65), rgba(170, 119, 255, 0.8));
   opacity: 0.95;
   transform: none;
   animation: none;
@@ -249,36 +287,39 @@ body.theme-monarch .writeup-card::before {
 
 body.theme-monarch .terminal-chrome {
   min-height: 42px;
-  background: linear-gradient(90deg, rgba(148, 235, 255, 0.85), rgba(80, 120, 255, 0.34), rgba(10, 17, 42, 0.72));
-  border-bottom-color: rgba(148, 235, 255, 0.74);
+  background: linear-gradient(90deg, rgba(130, 222, 255, 0.9), rgba(70, 110, 255, 0.4), rgba(8, 12, 34, 0.8));
+  border-bottom-color: rgba(130, 222, 255, 0.75);
 }
 
 body.theme-monarch .terminal-chrome span {
   width: 28px;
   height: 3px;
-  background: rgba(242, 250, 255, 0.86);
-  box-shadow: 0 0 12px rgba(148, 235, 255, 0.7);
+  background: rgba(240, 248, 255, 0.9);
+  box-shadow: 0 0 15px rgba(130, 222, 255, 0.85);
 }
+
 body.theme-monarch .terminal-output::before {
-  content: "SYSTEM WINDOW // STATUS: AWAKENED";
+  content: "SYSTEM WINDOW // SHADOW GATE ESTABLISHED // LEVEL: 99";
   display: block;
   margin-bottom: 0.9rem;
   color: var(--amber);
   font-family: var(--font-mono);
   font-size: 0.76rem;
   font-weight: 800;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(82, 207, 255, 0.7);
 }
 
 body.theme-monarch .glitch {
-  text-shadow: 0 0 18px rgba(119, 215, 255, 0.36), 0 0 36px rgba(125, 92, 255, 0.22);
+  text-shadow: 0 0 18px rgba(82, 207, 255, 0.42), 0 0 36px rgba(170, 119, 255, 0.28);
 }
 
 body.theme-monarch .status-pill,
 body.theme-monarch .skill-card li,
 body.theme-monarch .tag-list li {
-  border-color: rgba(179, 140, 255, 0.42);
-  background: rgba(125, 92, 255, 0.12);
-  color: #e3ddff;
+  border-color: rgba(170, 119, 255, 0.5);
+  background: rgba(170, 119, 255, 0.15);
+  color: #e5e0ff;
 }
 body.motion-paused *,
 body.motion-paused *::before,
@@ -394,6 +435,302 @@ button {
   border-color: var(--green);
   background: var(--green);
   box-shadow: 0 0 18px rgba(157, 255, 111, 0.55);
+}
+
+.topbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.theme-selector-hud {
+  display: inline-flex;
+  border: 1px solid var(--control-border);
+  background: var(--control-bg);
+  padding: 2px;
+  gap: 2px;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.015);
+  transition: all 180ms ease;
+}
+
+.hud-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.4rem 0.8rem;
+  transition: all 180ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hud-btn:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hud-btn.active {
+  color: var(--bg);
+  background: var(--cyan);
+  font-weight: 700;
+  box-shadow: 0 0 12px var(--grid-glow);
+}
+
+/* Theme specific overrides for HUD */
+body.theme-lord .theme-selector-hud {
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+body.theme-lord .hud-btn {
+  font-family: "Cinzel", "Georgia", serif;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+body.theme-lord .hud-btn.active {
+  background: var(--cyan);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 0, 40, 0.4);
+}
+
+body.theme-monarch .theme-selector-hud {
+  border: 1px solid rgba(170, 119, 255, 0.45);
+  box-shadow: 0 0 12px rgba(111, 78, 255, 0.15);
+}
+
+body.theme-monarch .hud-btn {
+  font-family: "Oxanium", sans-serif;
+  font-size: 0.74rem;
+}
+
+body.theme-monarch .hud-btn.active {
+  background: linear-gradient(135deg, var(--cyan), var(--green));
+  color: var(--bg);
+  box-shadow: 0 0 15px rgba(82, 207, 255, 0.4);
+}
+
+/* Stats Panel & Telemetry & Diag Styling */
+.monarch-stats-panel,
+.lord-telemetry-panel,
+.terminal-diag-panel {
+  display: none;
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+}
+
+body.theme-monarch .monarch-stats-panel {
+  display: block;
+  animation: line-in 500ms ease both;
+}
+
+body.theme-lord .lord-telemetry-panel {
+  display: block;
+  animation: line-in 500ms ease both;
+}
+
+body:not(.theme-lord):not(.theme-monarch) .terminal-diag-panel {
+  display: block;
+  animation: line-in 500ms ease both;
+}
+
+.stats-window {
+  border: 1px solid var(--control-border);
+  background: linear-gradient(135deg, rgba(10, 15, 42, 0.85), rgba(4, 6, 18, 0.9));
+  padding: 1.2rem;
+  box-shadow: 0 0 25px rgba(111, 78, 255, 0.2);
+  position: relative;
+}
+
+.stats-window::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  pointer-events: none;
+  border: 1px solid rgba(203, 238, 255, 0.15);
+  clip-path: polygon(0 0, 20px 0, 20px 1px, 1px 1px, 1px 20px, 0 20px, 0 0, 100% 0, 100% 20px, calc(100% - 1px) 20px, calc(100% - 1px) 1px, calc(100% - 20px) 1px, calc(100% - 20px) 0, 100% 0, 100% 100%, calc(100% - 20px) 100%, calc(100% - 20px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 20px), 100% calc(100% - 20px), 100% 100%, 0 100%, 0 calc(100% - 20px), 1px calc(100% - 20px), 1px calc(100% - 1px), 20px calc(100% - 1px), 20px 100%, 0 100%);
+}
+
+.stats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--line-strong);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.stats-title {
+  font-weight: 800;
+  color: var(--cyan);
+  font-size: 0.85rem;
+}
+
+.stats-level {
+  font-weight: 800;
+  color: var(--green);
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(170, 119, 255, 0.6);
+}
+
+.stats-bar-group {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: 125px 1fr 60px;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-weight: bold;
+}
+
+.stat-bar-container {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(170, 119, 255, 0.3);
+  overflow: hidden;
+}
+
+.stat-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  box-shadow: 0 0 8px var(--green);
+}
+
+.stat-val {
+  color: var(--text);
+  text-align: right;
+  font-weight: bold;
+}
+
+.telemetry-window {
+  border: 1px solid var(--cyan);
+  background: linear-gradient(180deg, rgba(26, 4, 6, 0.9), rgba(8, 2, 3, 0.95));
+  padding: 1.2rem;
+  box-shadow: 0 0 25px rgba(255, 0, 68, 0.18);
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+
+.telemetry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--line-strong);
+  padding-bottom: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.telemetry-title {
+  font-weight: 800;
+  color: var(--cyan);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.telemetry-status {
+  font-weight: 800;
+  color: var(--green);
+  font-size: 0.95rem;
+  text-shadow: 0 0 10px rgba(255, 170, 0, 0.6);
+}
+
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.telemetry-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.tel-label {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tel-value {
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: bold;
+}
+
+.tel-value.glow-red {
+  color: var(--cyan);
+  text-shadow: 0 0 8px var(--cyan);
+}
+
+.diag-window {
+  border: 3px double var(--cyan);
+  background: rgba(3, 11, 15, 0.85);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.diag-line {
+  color: var(--green);
+  text-shadow: 0 0 5px var(--green);
+}
+
+/* Custom card overrides for true Terminal retro look */
+body:not(.theme-lord):not(.theme-monarch) .experience-card,
+body:not(.theme-lord):not(.theme-monarch) .skill-card,
+body:not(.theme-lord):not(.theme-monarch) .project-card,
+body:not(.theme-lord):not(.theme-monarch) .writeup-card,
+body:not(.theme-lord):not(.theme-monarch) .terminal-panel,
+body:not(.theme-lord):not(.theme-monarch) .signal-card {
+  border: 2px solid var(--cyan);
+  border-radius: 0;
+  box-shadow: 0 0 15px rgba(98, 255, 226, 0.1), inset 0 0 10px rgba(98, 255, 226, 0.05);
+}
+
+@media (max-width: 980px) {
+  .topbar-controls {
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.8rem;
+    margin-top: 0.6rem;
+  }
+  .theme-selector-hud {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
+  .stat-row {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+  .stat-val {
+    text-align: left;
+  }
+  .telemetry-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .nav-links {

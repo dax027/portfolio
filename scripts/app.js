@@ -251,23 +251,27 @@
   }
 
   function setupThemeToggle() {
-    const button = $("#theme-toggle");
-    if (!button) return;
-
-    const nextTheme = () => themes[(themes.indexOf(state.theme) + 1) % themes.length];
+    const buttons = $$(".hud-btn");
+    if (!buttons.length) return;
 
     const sync = () => {
-      const next = nextTheme();
-      button.setAttribute("aria-pressed", String(state.theme !== "terminal"));
-      button.setAttribute("aria-label", `Switch to ${themeLabels[next]} mode`);
-      button.title = `Current mode: ${themeLabels[state.theme]}`;
-      button.textContent = `${themeLabels[next]} mode`;
+      buttons.forEach((btn) => {
+        const theme = btn.dataset.theme;
+        const isActive = state.theme === theme;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
+      });
     };
 
-    button.addEventListener("click", () => {
-      state.theme = nextTheme();
-      applyTheme({ persist: true, refreshCanvas: true });
-      sync();
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const selectedTheme = btn.dataset.theme;
+        if (themes.includes(selectedTheme)) {
+          state.theme = selectedTheme;
+          applyTheme({ persist: true, refreshCanvas: true });
+          sync();
+        }
+      });
     });
 
     sync();
@@ -355,22 +359,54 @@
       packets.forEach((packet) => {
         packet.x += packet.vx;
         packet.y += packet.vy;
-        if (packet.x > width + 80 || packet.y > height + 80 || packet.y < -80) Object.assign(packet, makePacket(true, width, height, palette));
+
+        if (state.theme === "monarch") {
+          packet.angle = (packet.angle || 0) + 0.005;
+        }
+
+        let outOfBounds = false;
+        if (state.theme === "lord" || state.theme === "monarch") {
+          if (packet.y < -30 || packet.x < -30 || packet.x > width + 30) {
+            outOfBounds = true;
+          }
+        } else {
+          if (packet.x > width + 80 || packet.y > height + 80 || packet.y < -80) {
+            outOfBounds = true;
+          }
+        }
+
+        if (outOfBounds) {
+          Object.assign(packet, makePacket(true, width, height, palette));
+        }
 
         context.globalAlpha = packet.alpha;
-        if (state.theme === "monarch") {
-          context.strokeStyle = packet.color;
-          context.lineWidth = packet.weight;
-          context.shadowColor = packet.color;
-          context.shadowBlur = 14;
+
+        if (state.theme === "lord") {
           context.beginPath();
-          context.moveTo(packet.x, packet.y);
-          context.lineTo(packet.x + packet.length, packet.y - packet.length * 0.42);
-          context.stroke();
-          context.shadowBlur = 0;
-          context.globalAlpha = packet.alpha * 0.45;
+          context.arc(packet.x, packet.y, packet.size / 2.5, 0, Math.PI * 2);
           context.fillStyle = packet.color;
-          context.fillRect(packet.x + packet.length + 6, packet.y - packet.length * 0.42, 18, 2);
+          context.shadowColor = packet.color;
+          context.shadowBlur = 12;
+          context.fill();
+          context.shadowBlur = 0;
+        } else if (state.theme === "monarch") {
+          context.save();
+          context.translate(packet.x, packet.y);
+          context.rotate(packet.angle || 0);
+          context.beginPath();
+          const w = packet.size * 0.7;
+          const h = packet.size * 1.3;
+          context.moveTo(0, -h/2);
+          context.lineTo(w/2, 0);
+          context.lineTo(0, h/2);
+          context.lineTo(-w/2, 0);
+          context.closePath();
+          context.fillStyle = packet.color;
+          context.shadowColor = packet.color;
+          context.shadowBlur = 16;
+          context.fill();
+          context.restore();
+          context.shadowBlur = 0;
         } else {
           context.fillStyle = packet.color;
           context.font = `${packet.size}px Cascadia Code, Consolas, monospace`;
@@ -418,18 +454,43 @@
 
   function makePacket(fromEdge = false, width = window.innerWidth, height = window.innerHeight, colors = canvasPalette()) {
     if (!colors.length) colors = ["#62ffe2", "#9dff6f", "#ff4fd8", "#ffd166", "#7aa8ff"];
-    return {
-      x: fromEdge ? -Math.random() * 120 : Math.random() * width,
-      y: Math.random() * height,
-      vx: 0.35 + Math.random() * 0.9,
-      vy: -0.18 + Math.random() * 0.36,
-      size: 10 + Math.random() * 11,
-      glyph: Math.floor(Math.random() * 16),
-      color: colors[Math.floor(Math.random() * colors.length)],
-      alpha: 0.18 + Math.random() * 0.52,
-      length: 52 + Math.random() * 120,
-      weight: 1 + Math.random() * 1.4
-    };
+    const theme = state.theme;
+
+    if (theme === "lord") {
+      return {
+        x: Math.random() * width,
+        y: fromEdge ? height + 20 + Math.random() * 50 : Math.random() * height,
+        vx: -0.25 + Math.random() * 0.5,
+        vy: -0.6 - Math.random() * 1.2,
+        size: 4 + Math.random() * 10,
+        color: ["#ff1e1e", "#ffaa00", "#ff6200", "#ff0044"][Math.floor(Math.random() * 4)],
+        alpha: 0.25 + Math.random() * 0.65,
+        weight: 1
+      };
+    } else if (theme === "monarch") {
+      return {
+        x: Math.random() * width,
+        y: fromEdge ? height + 30 + Math.random() * 50 : Math.random() * height,
+        vx: -0.15 + Math.random() * 0.3,
+        vy: -1.2 - Math.random() * 1.8,
+        size: 6 + Math.random() * 12,
+        color: ["#52cfff", "#aa77ff", "#6f4eff", "#2d6eff"][Math.floor(Math.random() * 4)],
+        alpha: 0.3 + Math.random() * 0.55,
+        angle: Math.random() * Math.PI,
+        weight: 1
+      };
+    } else {
+      return {
+        x: fromEdge ? -80 - Math.random() * 50 : Math.random() * width,
+        y: Math.random() * height,
+        vx: 0.45 + Math.random() * 0.9,
+        vy: -0.05 + Math.random() * 0.1,
+        size: 9 + Math.random() * 10,
+        glyph: Math.floor(Math.random() * 16),
+        color: colors[Math.floor(Math.random() * colors.length)],
+        alpha: 0.2 + Math.random() * 0.5
+      };
+    }
   }
 
   function isExternal(href) {

@@ -21,12 +21,20 @@
           <span class="brand-core" aria-hidden="true"></span>
           <span id="brand-name">operator</span>
         </a>
-        <nav class="nav-links" aria-label="Sections">
-          <a href="#resume">Resume</a>
-          <a href="#builds">Builds</a>
-          <a href="#writeups">Write-ups</a>
-          <a href="#contact">Contact</a>
-        </nav>
+        <div class="topbar-controls">
+          <!-- Segmented HUD Selector -->
+          <div class="theme-selector-hud" role="group" aria-label="Aesthetic selector">
+            <button class="hud-btn" type="button" id="theme-btn-terminal" data-theme="terminal" aria-label="Set Terminal theme">Terminal</button>
+            <button class="hud-btn" type="button" id="theme-btn-lord" data-theme="lord" aria-label="Set Lord theme">Lord</button>
+            <button class="hud-btn" type="button" id="theme-btn-monarch" data-theme="monarch" aria-label="Set Monarch theme">Monarch</button>
+          </div>
+          <nav class="nav-links" aria-label="Sections">
+            <a href="#resume">Resume</a>
+            <a href="#builds">Builds</a>
+            <a href="#writeups">Write-ups</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
       </header>
 
       <main id="main">
@@ -90,6 +98,79 @@
             <div>
               <h3 class="subhead">Capability matrix</h3>
               <div class="skill-grid" id="skill-grid"></div>
+
+              <!-- Monarch Mode System Status Display -->
+              <div class="monarch-stats-panel" aria-label="Monarch Hunter Stats">
+                <h3 class="subhead">Hunter Status Panel</h3>
+                <div class="stats-window">
+                  <div class="stats-header">
+                    <span class="stats-title">CLASS: AI RED TEAM OPERATOR</span>
+                    <span class="stats-level">LV. 99</span>
+                  </div>
+                  <div class="stats-bar-group">
+                    <div class="stat-row">
+                      <span class="stat-label">OFFENSIVE STRENGTH</span>
+                      <div class="stat-bar-container"><div class="stat-bar" style="width: 95%"></div></div>
+                      <span class="stat-val">95/100</span>
+                    </div>
+                    <div class="stat-row">
+                      <span class="stat-label">GOVERNANCE & RISK</span>
+                      <div class="stat-bar-container"><div class="stat-bar" style="width: 88%"></div></div>
+                      <span class="stat-val">88/100</span>
+                    </div>
+                    <div class="stat-row">
+                      <span class="stat-label">HEALTHCARE SYSTEMS</span>
+                      <div class="stat-bar-container"><div class="stat-bar" style="width: 92%"></div></div>
+                      <span class="stat-val">92/100</span>
+                    </div>
+                    <div class="stat-row">
+                      <span class="stat-label">ADVERSARIAL MANA</span>
+                      <div class="stat-bar-container"><div class="stat-bar" style="width: 90%"></div></div>
+                      <span class="stat-val">90/100</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lord Mode Dark Telemetry Display -->
+              <div class="lord-telemetry-panel" aria-label="Imperial Directive Telemetry">
+                <h3 class="subhead">Dark Force Telemetry</h3>
+                <div class="telemetry-window">
+                  <div class="telemetry-header">
+                    <span class="telemetry-title">SECTOR: OFFENSIVE SYSTEMS</span>
+                    <span class="telemetry-status">ACTIVE</span>
+                  </div>
+                  <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                      <span class="tel-label">OBJECTIVE</span>
+                      <span class="tel-value">AI SYSTEM DOMINANCE</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="tel-label">RED TEAM CAPABILITY</span>
+                      <span class="tel-value">MAXIMUM FORCE</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="tel-label">THREAT LEVEL</span>
+                      <span class="tel-value glow-red">CRITICAL</span>
+                    </div>
+                    <div class="telemetry-item">
+                      <span class="tel-label">SYSTEM SYNC</span>
+                      <span class="tel-value">98.4% STABLE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terminal Mode Diagnostics -->
+              <div class="terminal-diag-panel" aria-label="System Diagnostics">
+                <h3 class="subhead">Local Diagnostics</h3>
+                <div class="diag-window">
+                  <div class="diag-line">> HOST: dax-lab-primary</div>
+                  <div class="diag-line">> SYSTEM STATUS: OPERATIONAL</div>
+                  <div class="diag-line">> SECURITY AUDIT: PASSED</div>
+                  <div class="diag-line">> ACTIVE CONSOLE: /dev/tty0</div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -127,7 +208,11 @@
       <footer class="site-footer">
         <span id="footer-line">Built for GitHub Pages.</span>
         <div class="footer-controls" aria-label="Display controls">
-          <button class="ghost-control" type="button" id="theme-toggle" aria-pressed="false">Lord mode</button>
+          <div class="theme-selector-hud footer-hud" role="group" aria-label="Aesthetic selector">
+            <button class="hud-btn" type="button" id="footer-btn-terminal" data-theme="terminal">Terminal</button>
+            <button class="hud-btn" type="button" id="footer-btn-lord" data-theme="lord">Lord</button>
+            <button class="hud-btn" type="button" id="footer-btn-monarch" data-theme="monarch">Monarch</button>
+          </div>
           <button class="ghost-control" type="button" id="motion-toggle" aria-pressed="false">Pause motion</button>
         </div>
       </footer>
