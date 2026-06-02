@@ -382,30 +382,54 @@
         context.globalAlpha = packet.alpha;
 
         if (state.theme === "lord") {
+          // Render glowing fiery embers with trailing wind-trace gradients
           context.beginPath();
-          context.arc(packet.x, packet.y, packet.size / 2.5, 0, Math.PI * 2);
-          context.fillStyle = packet.color;
+          const tailGrad = context.createLinearGradient(packet.x, packet.y, packet.x - packet.vx * 3, packet.y - packet.vy * 3);
+          tailGrad.addColorStop(0, packet.color);
+          tailGrad.addColorStop(1, "rgba(255, 30, 30, 0)");
+          context.strokeStyle = tailGrad;
+          context.lineWidth = packet.size / 3.5;
+          context.lineCap = "round";
+          context.moveTo(packet.x, packet.y);
+          context.lineTo(packet.x - packet.vx * 3.5, packet.y - packet.vy * 3.5);
+          context.stroke();
+
+          // Combustion core
+          context.beginPath();
+          context.arc(packet.x, packet.y, packet.size / 4.5, 0, Math.PI * 2);
+          context.fillStyle = "#fffcf9";
           context.shadowColor = packet.color;
-          context.shadowBlur = 12;
+          context.shadowBlur = 14;
           context.fill();
           context.shadowBlur = 0;
         } else if (state.theme === "monarch") {
-          context.save();
-          context.translate(packet.x, packet.y);
-          context.rotate(packet.angle || 0);
+          // Render crackling, jagged neon electrical discharge arcs
           context.beginPath();
-          const w = packet.size * 0.7;
-          const h = packet.size * 1.3;
-          context.moveTo(0, -h/2);
-          context.lineTo(w/2, 0);
-          context.lineTo(0, h/2);
-          context.lineTo(-w/2, 0);
-          context.closePath();
-          context.fillStyle = packet.color;
+          context.strokeStyle = packet.color;
+          context.lineWidth = 1.2 + Math.random() * 0.8;
           context.shadowColor = packet.color;
-          context.shadowBlur = 16;
-          context.fill();
-          context.restore();
+          context.shadowBlur = 14;
+          context.lineCap = "round";
+          context.lineJoin = "round";
+          
+          context.moveTo(packet.x, packet.y);
+          
+          let cx = packet.x;
+          let cy = packet.y;
+          const segmentCount = 3 + Math.floor(Math.random() * 2);
+          for (let i = 0; i < segmentCount; i++) {
+            cx += -8 + Math.random() * 16;
+            cy += -packet.size * 0.85 + Math.random() * 4;
+            context.lineTo(cx, cy);
+          }
+          context.stroke();
+          
+          if (Math.random() > 0.45) {
+            context.beginPath();
+            context.arc(packet.x, packet.y, 1.8, 0, Math.PI * 2);
+            context.fillStyle = "#ffffff";
+            context.fill();
+          }
           context.shadowBlur = 0;
         } else {
           context.fillStyle = packet.color;

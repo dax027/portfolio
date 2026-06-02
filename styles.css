@@ -289,6 +289,7 @@ body.theme-monarch .command-bar {
     linear-gradient(180deg, rgba(14, 23, 56, 0.92), rgba(4, 6, 18, 0.9)),
     linear-gradient(90deg, rgba(82, 207, 255, 0.12), transparent 24%, transparent 76%, rgba(170, 119, 255, 0.1));
   box-shadow: 0 0 32px rgba(111, 78, 255, 0.16), inset 0 0 50px rgba(82, 207, 255, 0.08);
+  animation: energy-crackle 4s infinite steps(1);
 }
 
 body.theme-monarch .terminal-panel::after,
@@ -1321,6 +1322,25 @@ h2 {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+@keyframes energy-crackle {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(111, 78, 255, 0.2), inset 0 0 10px rgba(82, 207, 255, 0.08);
+  }
+  24% {
+    box-shadow: 0 0 24px rgba(111, 78, 255, 0.32), inset 0 0 16px rgba(82, 207, 255, 0.14);
+  }
+  26% {
+    box-shadow: 0 0 10px rgba(111, 78, 255, 0.12), inset 0 0 6px rgba(82, 207, 255, 0.04);
+  }
+  28% {
+    box-shadow: 0 0 32px rgba(111, 78, 255, 0.45), inset 0 0 22px rgba(82, 207, 255, 0.22);
+  }
+  68% {
+    box-shadow: 0 0 14px rgba(111, 78, 255, 0.16), inset 0 0 8px rgba(82, 207, 255, 0.06);
+  }
+  70% {
+    box-shadow: 0 0 28px rgba(111, 78, 255, 0.36), inset 0 0 18px rgba(82, 207, 255, 0.18);
   }
 }
 
